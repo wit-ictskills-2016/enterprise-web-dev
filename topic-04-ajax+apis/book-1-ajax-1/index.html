@@ -419,6 +419,8 @@ function populateTable(repoList) {
 <li><a href="https://github.com/wit-ictskills-2016/js-ajax-1.git">https://github.com/wit-ictskills-2016/js-ajax-1.git</a></li>
 </ul>
 <h2>Exercise 1:</h2>
+<p>If you load the repos for <code>hapjs</code> say, and then query for another user (your own github account say) - what happens? It looks like it still returns the <code>hapijs</code> repos. In fact, it is appended the second query on to the first. Change this so that we reset the table (emptying its contents) on every request,</p>
+<h2>Exercise 2:</h2>
 <p>Extend the table to display additional information about each repo. </p>
 <p>To discover what fields are available, examine the data array in the debugger:</p>
 <p><img src="img/22.png" alt=""></p>
@@ -432,9 +434,9 @@ function populateTable(repoList) {
 <ul>
 <li><a href="https://developer.github.com/v3/repos">https://developer.github.com/v3/repos</a></li>
 </ul>
-<h2>Exercise 2:</h2>
-<p>The url can take parameters - including the sort order. Try to have the repository sorted by &#39;updates&#39; or &#39;created&#39; by providing the appropriate parameter</p>
 <h2>Exercise 3:</h2>
+<p>The url can take parameters - including the sort order. Try to have the repository sorted by &#39;updates&#39; or &#39;created&#39; by providing the appropriate parameter</p>
+<h2>Exercise 4:</h2>
 <p>If you get 2 working, include a drop down next to the search button, which will allow the user to select on of the order parameters to control the sequence in which the table is populated.</p>
 
   </div>
