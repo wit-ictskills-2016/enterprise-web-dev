@@ -7,12 +7,12 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" type="text/css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/solarized_light.min.css" rel="stylesheet" />
 
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/languages/java.min.js"></script>
      <script>hljs.initHighlightingOnLoad();</script>
@@ -36,10 +36,6 @@ figcaption
   align-items: center;
 }
 
-.credits
-{
-  min-height:20px;
-}
 
 
     </style>
@@ -47,9 +43,7 @@ figcaption
   </head>
 
   <body>
-
-    <div class="ui container">
-      
+    
 
 <style>
   
@@ -87,73 +81,141 @@ h3
 
 </style>
 
-<div class="ui fixed top pointing inverted menu labmenu">
-  <header class="header item">
-    <a href="../index.html">
-      <i class="sitemap icon"></i>
-      2: CSS Frameworks
-    </a>
-  </header>
-  <div class="right tab-menu menu">
-    
-      <a class="item" data-tab="Lab-2.1 Css 1">
-        Lab-2.1 Css 1
-      </a>
-    
-      <a class="item" data-tab="01">
-        01
-      </a>
-    
-      <a class="item" data-tab="02">
-        02
-      </a>
-    
-      <a class="item" data-tab="03">
-        03
-      </a>
-    
-      <a class="item" data-tab="04">
-        04
-      </a>
-    
-      <a class="item" data-tab="05">
-        05
-      </a>
-    
-      <a class="item" data-tab="06">
-        06
-      </a>
-    
-      <a class="item" data-tab="07">
-        07
-      </a>
-    
-      <a class="item" data-tab="08">
-        08
-      </a>
-    
-      <a class="item" data-tab="09">
-        09
-      </a>
-    
-      <a class="item" data-tab="Exercises">
-        Exercises
-      </a>
-    
-    </div>
-</div>
 
-<br><br>
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-01-html/book-01-html/index.html">
+          Lab-1.1 Html
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-01-html/book-02-templates/index.html">
+          Lab-1.2 Templates
+        </a>
+      
+    
+      
+        <a class="active item" href="../../topic-02-css/book-01-css-frameworks-1/index.html">
+          Lab-2.1 Css 1
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-css/book-02-css-frameworks-2/index.html">
+          Lab-2.2 Css 2
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-js+dom/book-1-javascript-intro/index.html">
+          Lab-3.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-js+dom/book-2-javascript-fundamentals/index.html">
+          Lab-3.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-js+dom/book-3-jquery/index.html">
+          Lab-3.3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+  </div>
+  <div class="pusher">
+    <div class="ui basic segment">
 
-  
-  <div  class="ui tab segment lab" data-tab="Lab-2.1 Css 1">
-    <h1>Objectives</h1>
+      <div class="ui fixed top pointing inverted menu labmenu">
+        <header class="header item">
+          <i id="toc" class="sitemap icon"></i>
+          <a href="../index.html">
+            2: CSS Frameworks
+          </a>
+        </header>
+        <div class="right tab-menu menu">
+          
+            <a class="item" data-tab="Lab-2.1 Css 1">
+              Lab-2.1 Css 1
+            </a>
+          
+            <a class="item" data-tab="01">
+              01
+            </a>
+          
+            <a class="item" data-tab="02">
+              02
+            </a>
+          
+            <a class="item" data-tab="03">
+              03
+            </a>
+          
+            <a class="item" data-tab="04">
+              04
+            </a>
+          
+            <a class="item" data-tab="05">
+              05
+            </a>
+          
+            <a class="item" data-tab="06">
+              06
+            </a>
+          
+            <a class="item" data-tab="07">
+              07
+            </a>
+          
+            <a class="item" data-tab="08">
+              08
+            </a>
+          
+            <a class="item" data-tab="09">
+              09
+            </a>
+          
+            <a class="item" data-tab="Exercises">
+              Exercises
+            </a>
+          
+          </div>
+      </div>
+
+      <br><br>
+
+      
+      <div  class="ui tab segment lab" data-tab="Lab-2.1 Css 1">
+        <h1>Objectives</h1>
 <p>Rebuild the iot web site using semantic-ui</p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="01">
-    <h1>Setup</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
+        <h1>Setup</h1>
 <p>The starting point for this lab is the final version of the project from the last lab:</p>
 <ul>
 <li><a href="https://github.com/wit-ictskills-2016/iot-web/tree/V12">https://github.com/wit-ictskills-2016/iot-web/tree/V12</a></li>
@@ -196,10 +258,10 @@ Press Ctl+C to stop the server</code></pre>
     └── style.css</code></pre>
 <p>Make sure you can see this structure in Windows Explorer / Mac Finder.</p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="02">
-    <h1>semantic.css</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>semantic.css</h1>
 <p>The first step is to download and save the semantic style sheet. Download this archive here:</p>
 <ul>
 <li><a href="archives/css.zip">css.zip</a></li>
@@ -237,10 +299,10 @@ Press Ctl+C to stop the server</code></pre>
 <p>There should be an extra css folder - with the files/folders shown above. </p>
 <p>You should delete the <code>css.zip</code> folder if it is present.</p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="03">
-    <h1>First Steps...</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>First Steps...</h1>
 <p>Open index.ejs and introduce a link to the style sheet we downloaded in the last step:</p>
 <pre><code>  &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/css/semantic.css&quot;&gt;</code></pre>
 <p>This goes into the <code>&lt;head&gt;</code> section of index such that it will look like this:</p>
@@ -268,10 +330,10 @@ Press Ctl+C to stop the server</code></pre>
 <p>Your page should look like this:</p>
 <p><img src="img/01.png" alt=""></p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="04">
-    <h1>Container</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Container</h1>
 <p>The <code>&lt;body&gt;</code> of our index page looks like this:</p>
 <pre><code>&lt;body&gt;
 
@@ -305,10 +367,10 @@ Press Ctl+C to stop the server</code></pre>
 <p>Your page should look like this:</p>
 <p><img src="img/02.png" alt=""></p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="05">
-    <h1>Segment</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Segment</h1>
 <p>The cornerstone of many of the styles in Semantic-UI is the <code>segment</code> class:</p>
 <ul>
 <li><a href="http://semantic-ui.com/elements/segment.html">http://semantic-ui.com/elements/segment.html</a></li>
@@ -394,10 +456,10 @@ Press Ctl+C to stop the server</code></pre>
 <p>The pages will start to look like this:</p>
 <p><img src="img/04.png" alt=""></p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="06">
-    <h1>layout</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>layout</h1>
 <p>In the <code>strands</code> folder, all pages are based in the single <code>_layout.ejs</code> template we have defined. This now make is very easy for use to introduce <code>ui segments</code> into all pages:</p>
 <p>This is the current <code>&lt;body&gt;</code> of <code>_layout.ejs</code>:</p>
 <pre><code>&lt;!DOCTYPE html&gt;
@@ -437,10 +499,10 @@ Press Ctl+C to stop the server</code></pre>
 <p>It includes the semantic.css in the header, and also <code>container</code> and <code>segment</code> styles. We do this once, and all the pages in the strands folder will be updated:</p>
 <p><img src="img/05.png" alt=""></p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="07">
-    <h1>Grids I</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="07">
+        <h1>Grids I</h1>
 <p>This is our current _header.ejs template:</p>
 <pre><code>&lt;header class=&quot;ui segment&quot;&gt;
   &lt;h2&gt;
@@ -501,10 +563,10 @@ Press Ctl+C to stop the server</code></pre>
 <li><a href="http://semantic-ui.com/elements/segment.html#text-alignment">http://semantic-ui.com/elements/segment.html#text-alignment</a></li>
 </ul>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="08">
-    <h1>Grids II</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="08">
+        <h1>Grids II</h1>
 <p>We can apply the same principles to tidy up the _sponsors.ejs template:</p>
 <pre><code>&lt;section class=&quot;ui segment&quot;&gt;
   &lt;h4&gt; Supported by leading edge research at... &lt;/h4&gt;
@@ -566,10 +628,10 @@ Press Ctl+C to stop the server</code></pre>
 &lt;/section&gt;</code></pre>
 <p><img src="img/12.png" alt=""></p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="09">
-    <h1>Grids III</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="09">
+        <h1>Grids III</h1>
 <p>Currently our curriculum section looks like this:</p>
 <p><img src="img/14.png" alt=""></p>
 <p>We would like the reformat it as follows:</p>
@@ -689,10 +751,10 @@ Press Ctl+C to stop the server</code></pre>
 <p><img src="img/15.png" alt=""></p>
 <p>Note the use of blank lines in the code to help keep the structure readable.</p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="Exercises">
-    <h1>Archive</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Archive</h1>
 <p>This is the version of the site at this stage:</p>
 <ul>
 <li><a href="https://github.com/wit-ictskills-2016/iot-web/tree/V13">https://github.com/wit-ictskills-2016/iot-web/tree/V13</a></li>
@@ -735,34 +797,25 @@ Press Ctl+C to stop the server</code></pre>
 <p><img src="img/18.png" alt=""></p>
 <p>Experiment with the above in your assignment.</p>
 
-  </div>
- 
-
-
-<script>
-$('.ui.menu .item')
-  .tab({
-    history: true,
-    historyType: 'hash'
-  })
-;
-</script>
-
+      </div>
+     
     </div>
-
-    
-  <br><br>
-  <div class="ui bottom fixed borderless menu">
-    <div class="ui small item">
-    <p id="footertext">
-    Prepared by  Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
-     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
-     </a>
-     </p>
+  </div>
+</div>
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right tiny menu">
+      <div class="ui mini message segment">
+        <a href="mailto://edeleastar@wit.ie"> Eamonn de Leastar <a>.
+        <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+            target="_blank">Creative Commons License
+        </a>
+      </div>
     </div>
   </div>
 
+    <footer>
+
+    </footer>
     <script>
       
 $(document).ready(function()
@@ -783,9 +836,21 @@ $(document).ready(function()
   });
 
 
-})
+  $('.ui.menu .item')
+      .tab({
+        history: true,
+        historyType: 'hash',
+      });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+      .sidebar({ context: $('.pushable') })
+      .sidebar('setting', 'transition', 'slide out')
+      .sidebar('attach events', '#toc');
+});
 
     </script>
-
   </body>
+
  </html>

@@ -7,12 +7,12 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" type="text/css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/solarized_light.min.css" rel="stylesheet" />
 
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/languages/java.min.js"></script>
      <script>hljs.initHighlightingOnLoad();</script>
@@ -36,10 +36,6 @@ figcaption
   align-items: center;
 }
 
-.credits
-{
-  min-height:20px;
-}
 
 
     </style>
@@ -47,9 +43,7 @@ figcaption
   </head>
 
   <body>
-
-    <div class="ui container">
-      
+    
 
 <style>
   
@@ -87,65 +81,133 @@ h3
 
 </style>
 
-<div class="ui fixed top pointing inverted menu labmenu">
-  <header class="header item">
-    <a href="../index.html">
-      <i class="sitemap icon"></i>
-      3: JavaScript & DOM
-    </a>
-  </header>
-  <div class="right tab-menu menu">
-    
-      <a class="item" data-tab="Lab-3.2 JS Basics">
-        Lab-3.2 JS Basics
-      </a>
-    
-      <a class="item" data-tab="01">
-        01
-      </a>
-    
-      <a class="item" data-tab="02">
-        02
-      </a>
-    
-      <a class="item" data-tab="03">
-        03
-      </a>
-    
-      <a class="item" data-tab="04">
-        04
-      </a>
-    
-      <a class="item" data-tab="05">
-        05
-      </a>
-    
-      <a class="item" data-tab="06">
-        06
-      </a>
-    
-      <a class="item" data-tab="07">
-        07
-      </a>
-    
-      <a class="item" data-tab="Exercises">
-        Exercises
-      </a>
-    
-    </div>
-</div>
 
-<br><br>
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-01-html/book-01-html/index.html">
+          Lab-1.1 Html
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-01-html/book-02-templates/index.html">
+          Lab-1.2 Templates
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-css/book-01-css-frameworks-1/index.html">
+          Lab-2.1 Css 1
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-css/book-02-css-frameworks-2/index.html">
+          Lab-2.2 Css 2
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-js+dom/book-1-javascript-intro/index.html">
+          Lab-3.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="active item" href="../../topic-03-js+dom/book-2-javascript-fundamentals/index.html">
+          Lab-3.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-js+dom/book-3-jquery/index.html">
+          Lab-3.3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+  </div>
+  <div class="pusher">
+    <div class="ui basic segment">
 
-  
-  <div  class="ui tab segment lab" data-tab="Lab-3.2 JS Basics">
-    <h1>Objectives</h1>
+      <div class="ui fixed top pointing inverted menu labmenu">
+        <header class="header item">
+          <i id="toc" class="sitemap icon"></i>
+          <a href="../index.html">
+            3: JavaScript & DOM
+          </a>
+        </header>
+        <div class="right tab-menu menu">
+          
+            <a class="item" data-tab="Lab-3.2 JS Basics">
+              Lab-3.2 JS Basics
+            </a>
+          
+            <a class="item" data-tab="01">
+              01
+            </a>
+          
+            <a class="item" data-tab="02">
+              02
+            </a>
+          
+            <a class="item" data-tab="03">
+              03
+            </a>
+          
+            <a class="item" data-tab="04">
+              04
+            </a>
+          
+            <a class="item" data-tab="05">
+              05
+            </a>
+          
+            <a class="item" data-tab="06">
+              06
+            </a>
+          
+            <a class="item" data-tab="07">
+              07
+            </a>
+          
+            <a class="item" data-tab="Exercises">
+              Exercises
+            </a>
+          
+          </div>
+      </div>
+
+      <br><br>
+
+      
+      <div  class="ui tab segment lab" data-tab="Lab-3.2 JS Basics">
+        <h1>Objectives</h1>
 <p>Examine some of JavaScript&#39;s constructs such as conditionals, loops, arrays, objects, functions and scope. Understanding some concepts such as Truthy and Falsy values. simple static web site, include an external JavaScript file and use Google Chrome developer tools to debug into the script at runtime.</p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="01">
-    <h1>Setup</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
+        <h1>Setup</h1>
 <p>For this lab, we will dispense with the need for html and a browser to run the code, and make use of webstorm (and node) to run the programmes.</p>
 <p>Create a new empty project called <code>js-basics</code>.  Follow the instructions on the first step of the last lab to configure the project with the same .jscsrc configuration as outlined there.</p>
 <p>In the project, create a file called <code>hello.js</code> containing the following:</p>
@@ -154,10 +216,10 @@ h3
 <p><img src="img/00.png" alt=""></p>
 <p>We should see the message in the lower run panel. We can use this technique to run all the scripts in this lab.</p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="02">
-    <h1>Conditional Code</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Conditional Code</h1>
 <p>Sometimes a block of code should only be run under certain conditions. Flow control &#8212; via <code>if</code> and <code>else</code> blocks &#8212; lets you run code if certain conditions have been met.</p>
 <pre><code class="lang-javascript">// Control flow
 const foo = true;
@@ -226,10 +288,10 @@ switch (foo) {
 <li><a href="https://developers.google.com/web/updates/2015/01/ES6-Template-Strings?hl=en">https://developers.google.com/web/updates/2015/01/ES6-Template-Strings?hl=en</a></li>
 </ul>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="03">
-    <h1>Loops</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Loops</h1>
 <p>Loops let a block of code run a certain number of times:</p>
 <pre><code class="lang-javascript">// A for loop
 // logs `try 0`, `try 1`, ..., `try 4`
@@ -330,10 +392,10 @@ for (let i = 0; i &lt; 10; i++) {
 <li>compute the average of all the numbers</li>
 </ul>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="04">
-    <h1>Arrays</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Arrays</h1>
 <p>Arrays are zero-indexed, ordered lists of values. They are a handy way to store a set of related items of the same type (such as strings), though in reality, an array can include multiple types of items, including other arrays.</p>
 <p>To create an array, either use the object constructor or the literal declaration, by assigning the variable a list of values after the declaration.</p>
 <pre><code class="lang-javascript">// A simple array with constructor
@@ -530,10 +592,10 @@ myArray22.forEach(negateElement);</code></pre>
 <li>double clicking in the editor margin will set a breakpoint.</li>
 </ul>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="05">
-    <h1>Objects</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Objects</h1>
 <p>Objects contain one or more key-value pairs. The key portion can be any string. The value portion can be any type of value: a number, a string, an array, a function, or even another object.  When one of these values is a function, it’s called a method of the object. Otherwise, they are called properties.</p>
 <p>As it turns out, nearly everything in JavaScript is an object &#8212; arrays, functions, numbers, even strings &#8212; and they all have properties and methods.</p>
 <pre><code class="lang-javascript">// Creating an object literal
@@ -566,10 +628,10 @@ console.log(myObject2);</code></pre>
 </ul>
 <p>Using this code as a guide, create a new object call <code>myLocation</code>. It should have location-name, latitude, longitude and description as its fields. It should then have a method &#39;showLocation&#39; to log the current location to the console.</p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="06">
-    <h1>Functions</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>Functions</h1>
 <p>Functions contain blocks of code that need to be executed repeatedly. Functions can take zero or more arguments, and can optionally return a value.</p>
 <p>Functions can be created in a variety of ways, two of which are shown below:</p>
 <p>Study <a href="http://airbnb.io/javascript/#functions">Airbnb styleguide section on functions</a>.</p>
@@ -649,10 +711,10 @@ const myOtherFn = function () {
 
 myFn2(myOtherFn); // &#39;hello world&#39;</code></pre>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="07">
-    <h1>Scope</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="07">
+        <h1>Scope</h1>
 <p>&quot;Scope&quot; refers to the variables that are available to a piece of code at a given time. A lack of understanding of scope can lead to frustrating debugging experiences.</p>
 <p>When a variable is declared inside of a function using the <code>var</code> keyword, it is only available to code inside of that function &#8212; code outside of that function cannot access the variable. On the other hand, functions defined inside that function will have access to to the declared variable.</p>
 <p>When a <code>var</code> is declared and initialized within a function, the declaration is silently <em>hoisted</em> to the top of the function but not the assignment. The variable has what is termed <em>function scope</em>. This contrasts to <em>block scope</em> with which we are familiar from Java.</p>
@@ -795,10 +857,10 @@ bim();</code></pre>
 <li>debug though each in webstorm. Keep a close eye on the scope variable pane, and confirm that the behaviour is as expected.</li>
 </ul>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="Exercises">
-    <h1>Exercises</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
 <p>Archive of the project so far:</p>
 <ul>
 <li><a href="https://github.com/wit-ictskills-2016/js-basics.git">https://github.com/wit-ictskills-2016/js-basics.git</a></li>
@@ -806,34 +868,25 @@ bim();</code></pre>
 <p>Download and make sure you can open this project in WebStorm successfully. Verify that the Jscsrc guidelines are all showing green. Deliberately introduce some style violations, and get used to the error reports from the style plugin.</p>
 <p>Experiment with the debugger in WebStorm</p>
 
-  </div>
- 
-
-
-<script>
-$('.ui.menu .item')
-  .tab({
-    history: true,
-    historyType: 'hash'
-  })
-;
-</script>
-
+      </div>
+     
     </div>
-
-    
-  <br><br>
-  <div class="ui bottom fixed borderless menu">
-    <div class="ui small item">
-    <p id="footertext">
-    Prepared by  Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
-     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
-     </a>
-     </p>
+  </div>
+</div>
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right tiny menu">
+      <div class="ui mini message segment">
+        <a href="mailto://edeleastar@wit.ie"> Eamonn de Leastar <a>.
+        <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+            target="_blank">Creative Commons License
+        </a>
+      </div>
     </div>
   </div>
 
+    <footer>
+
+    </footer>
     <script>
       
 $(document).ready(function()
@@ -854,9 +907,21 @@ $(document).ready(function()
   });
 
 
-})
+  $('.ui.menu .item')
+      .tab({
+        history: true,
+        historyType: 'hash',
+      });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+      .sidebar({ context: $('.pushable') })
+      .sidebar('setting', 'transition', 'slide out')
+      .sidebar('attach events', '#toc');
+});
 
     </script>
-
   </body>
+
  </html>

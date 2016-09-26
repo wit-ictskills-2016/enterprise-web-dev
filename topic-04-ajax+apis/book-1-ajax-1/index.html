@@ -7,12 +7,12 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" type="text/css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/solarized_light.min.css" rel="stylesheet" />
 
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/languages/java.min.js"></script>
      <script>hljs.initHighlightingOnLoad();</script>
@@ -36,10 +36,6 @@ figcaption
   align-items: center;
 }
 
-.credits
-{
-  min-height:20px;
-}
 
 
     </style>
@@ -47,9 +43,7 @@ figcaption
   </head>
 
   <body>
-
-    <div class="ui container">
-      
+    
 
 <style>
   
@@ -87,65 +81,133 @@ h3
 
 </style>
 
-<div class="ui fixed top pointing inverted menu labmenu">
-  <header class="header item">
-    <a href="../index.html">
-      <i class="sitemap icon"></i>
-      4: Ajax & APIs
-    </a>
-  </header>
-  <div class="right tab-menu menu">
-    
-      <a class="item" data-tab="Lab-4.1 Github API">
-        Lab-4.1 Github API
-      </a>
-    
-      <a class="item" data-tab="01">
-        01
-      </a>
-    
-      <a class="item" data-tab="02">
-        02
-      </a>
-    
-      <a class="item" data-tab="03">
-        03
-      </a>
-    
-      <a class="item" data-tab="04">
-        04
-      </a>
-    
-      <a class="item" data-tab="05">
-        05
-      </a>
-    
-      <a class="item" data-tab="06">
-        06
-      </a>
-    
-      <a class="item" data-tab="07">
-        07
-      </a>
-    
-      <a class="item" data-tab="Exercises">
-        Exercises
-      </a>
-    
-    </div>
-</div>
 
-<br><br>
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-01-html/book-01-html/index.html">
+          Lab-1.1 Html
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-01-html/book-02-templates/index.html">
+          Lab-1.2 Templates
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-css/book-01-css-frameworks-1/index.html">
+          Lab-2.1 Css 1
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-css/book-02-css-frameworks-2/index.html">
+          Lab-2.2 Css 2
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-js+dom/book-1-javascript-intro/index.html">
+          Lab-3.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-js+dom/book-2-javascript-fundamentals/index.html">
+          Lab-3.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-js+dom/book-3-jquery/index.html">
+          Lab-3.3 JQuery
+        </a>
+      
+    
+      
+        <a class="active item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+  </div>
+  <div class="pusher">
+    <div class="ui basic segment">
 
-  
-  <div  class="ui tab segment lab" data-tab="Lab-4.1 Github API">
-    <h1>Objectives</h1>
+      <div class="ui fixed top pointing inverted menu labmenu">
+        <header class="header item">
+          <i id="toc" class="sitemap icon"></i>
+          <a href="../index.html">
+            4: Ajax & APIs
+          </a>
+        </header>
+        <div class="right tab-menu menu">
+          
+            <a class="item" data-tab="Lab-4.1 Github API">
+              Lab-4.1 Github API
+            </a>
+          
+            <a class="item" data-tab="01">
+              01
+            </a>
+          
+            <a class="item" data-tab="02">
+              02
+            </a>
+          
+            <a class="item" data-tab="03">
+              03
+            </a>
+          
+            <a class="item" data-tab="04">
+              04
+            </a>
+          
+            <a class="item" data-tab="05">
+              05
+            </a>
+          
+            <a class="item" data-tab="06">
+              06
+            </a>
+          
+            <a class="item" data-tab="07">
+              07
+            </a>
+          
+            <a class="item" data-tab="Exercises">
+              Exercises
+            </a>
+          
+          </div>
+      </div>
+
+      <br><br>
+
+      
+      <div  class="ui tab segment lab" data-tab="Lab-4.1 Github API">
+        <h1>Objectives</h1>
 <p>Explore the github API</p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="01">
-    <h1>Web Interface</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
+        <h1>Web Interface</h1>
 <p>Visit the following page on github:</p>
 <ul>
 <li><a href="https://github.com/hapijs">https://github.com/hapijs</a></li>
@@ -160,10 +222,10 @@ h3
 <p><img src="img/02.png" alt=""></p>
 <p>See if you can correlate the information on the two different views above - i.e. locate what subset is presented on the page.</p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="02">
-    <h1>Json</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>Json</h1>
 <p>Look at this rendering of the same view here:</p>
 <p><img src="img/03.png" alt=""></p>
 <p>This is generated by using this Chrome Plugin:</p>
@@ -181,10 +243,10 @@ h3
 <p><img src="img/05.png" alt=""></p>
 <p>As well as follow any of the highlighted links.</p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="03">
-    <h1>Project Setup</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Project Setup</h1>
 <p>Create a new <code>Empty Project</code> in Webstorm called <code>js-ajax-1</code> and create the following structure - with empty files as shown:</p>
 <p><img src="img/07.png" alt=""></p>
 <p>These are starter version of the three files:</p>
@@ -262,10 +324,10 @@ body {
 <p><img src="img/08.png" alt=""></p>
 <p>Bring in the <code>.jscsrc</code> file from th previous labs, and make sure the inspections are enabled.</p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="04">
-    <h1>Chrome Debugging</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>Chrome Debugging</h1>
 <p>in Chrome, select `Customise-&gt;More Tools-&gt;Developer Tools&#39;</p>
 <p><img src="img/09.png" alt=""></p>
 <p>Try to arrange chrome to look like this:</p>
@@ -293,10 +355,10 @@ body {
 <p>If you loose track of the execution, or if you edit the source to make a change, then you must press the browser reload button in order to restart the program execution:</p>
 <p><img src="img/17.png" alt=""></p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="05">
-    <h1>Retrieve Repo List</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Retrieve Repo List</h1>
 <p>Replace the current javascript event handler with the following:</p>
 <pre><code>$(&#39;#search_btn&#39;).click(function () {
 
@@ -331,10 +393,10 @@ body {
 <p>Running this should print the following to the console:</p>
 <p><img src="img/20.png" alt=""></p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="06">
-    <h1>Populating a Table</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h1>Populating a Table</h1>
 <p>We can extend the success function to populate the html table we already have laid out:</p>
 <pre><code>        $(&#39;#repo_table&#39;).append(&#39;&lt;tr&gt;&lt;td&gt;&#39; + data[i].name + &#39;&lt;/td&gt;&lt;/tr&gt;&#39;);</code></pre>
 <p>Try this now - and you should see the list of repo names:</p>
@@ -372,10 +434,10 @@ body {
   });
 });</code></pre>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="07">
-    <h1>Refactor Javascript</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="07">
+        <h1>Refactor Javascript</h1>
 <p>We introduce two new functions to update the user interface:</p>
 <pre><code>function updateResult(result) {
   $(&#39;#result-msg&#39;).text(&#39;&#39;);
@@ -410,10 +472,10 @@ function populateTable(repoList) {
 });</code></pre>
 <p>These functions are more concise and readable - with less repetition.</p>
 
-  </div>
- 
-  <div  class="ui tab segment lab" data-tab="Exercises">
-    <h1>Exercises</h1>
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
 <p>Project repository so far:</p>
 <ul>
 <li><a href="https://github.com/wit-ictskills-2016/js-ajax-1.git">https://github.com/wit-ictskills-2016/js-ajax-1.git</a></li>
@@ -439,34 +501,25 @@ function populateTable(repoList) {
 <h2>Exercise 4:</h2>
 <p>If you get 2 working, include a drop down next to the search button, which will allow the user to select on of the order parameters to control the sequence in which the table is populated.</p>
 
-  </div>
- 
-
-
-<script>
-$('.ui.menu .item')
-  .tab({
-    history: true,
-    historyType: 'hash'
-  })
-;
-</script>
-
+      </div>
+     
     </div>
-
-    
-  <br><br>
-  <div class="ui bottom fixed borderless menu">
-    <div class="ui small item">
-    <p id="footertext">
-    Prepared by  Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
-     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
-     </a>
-     </p>
+  </div>
+</div>
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right tiny menu">
+      <div class="ui mini message segment">
+        <a href="mailto://edeleastar@wit.ie"> Eamonn de Leastar <a>.
+        <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+            target="_blank">Creative Commons License
+        </a>
+      </div>
     </div>
   </div>
 
+    <footer>
+
+    </footer>
     <script>
       
 $(document).ready(function()
@@ -487,9 +540,21 @@ $(document).ready(function()
   });
 
 
-})
+  $('.ui.menu .item')
+      .tab({
+        history: true,
+        historyType: 'hash',
+      });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+      .sidebar({ context: $('.pushable') })
+      .sidebar('setting', 'transition', 'slide out')
+      .sidebar('attach events', '#toc');
+});
 
     </script>
-
   </body>
+
  </html>

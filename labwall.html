@@ -7,12 +7,12 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" type="text/css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/solarized_light.min.css" rel="stylesheet" />
 
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/languages/java.min.js"></script>
      <script>hljs.initHighlightingOnLoad();</script>
@@ -36,10 +36,6 @@ figcaption
   align-items: center;
 }
 
-.credits
-{
-  min-height:20px;
-}
 
 
     </style>
@@ -47,48 +43,114 @@ figcaption
   </head>
 
   <body>
+    
 
-    <div class="ui container">
-      
-
-
-  <header class="ui middle aligned center aligned stackable grid segment">
-    <a class="ui blue left corner label">
-      <i class="lab big  icon"></i>
+<div class="ui bottom attached segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+    <a class="item" href="topic-01-html/book-01-html/index.html">
+      Lab-1.1 Html
     </a>
-    <div class="eight wide center aligned column">
-      <h2 class="headder">    Building Modern Web Applications & Services </h2>
-    </div>
-    <div class="one wide column sitemap">
-      <div class="popup" data-content="Top Level Topic View">
-        <a href="index.html"> <i class="big sitemap icon"></i>  topics </a>
-      </div>
-    </div>
-    <div class="one wide column">
-      <div class="popup" data-content="All Presentations">
-        <a href="talkwall.html"> <i class="big film icon"></i>  slides </a>
-      </div>
-    </div>
-    <div class="one wide column">
-      <div class="popup" data-content="All Labs">
-        <a href="labwall.html"> <i class="big lab icon"></i> labs </a>
-      </div>
-    </div>
-    <div class="five wide column">
-      <img class="ui centered medium image" src="http://www.wit.ie/assets/images/wit_crest.png">
-    </div>
-  </header>
+    
+    <a class="item" href="topic-01-html/book-02-templates/index.html">
+      Lab-1.2 Templates
+    </a>
+    
+    <a class="item" href="topic-02-css/book-01-css-frameworks-1/index.html">
+      Lab-2.1 Css 1
+    </a>
+    
+    <a class="item" href="topic-02-css/book-02-css-frameworks-2/index.html">
+      Lab-2.2 Css 2
+    </a>
+    
+    <a class="item" href="topic-03-js+dom/book-1-javascript-intro/index.html">
+      Lab-3.1 JS Intro
+    </a>
+    
+    <a class="item" href="topic-03-js+dom/book-2-javascript-fundamentals/index.html">
+      Lab-3.2 JS Basics
+    </a>
+    
+    <a class="item" href="topic-03-js+dom/book-3-jquery/index.html">
+      Lab-3.3 JQuery
+    </a>
+    
+    <a class="item" href="topic-04-ajax+apis/book-1-ajax-1/index.html">
+      Lab-4.1 Github API
+    </a>
+    
+    <a class="item" href="topic-04-ajax+apis/book-2-ajax-2/index.html">
+      Lab-4.2-FoureSquare API
+    </a>
+    
+    <a class="item" href="topic-05-applications/book-applications/index.html">
+      Lab-5 Applications
+    </a>
+    
+  </div>
+  <div class="pusher">
+    <div class="ui basic segment">
+      
+        
 
-<script>
-  $('.popup')
-  .popup()
-;
-</script>
 
 
-<div class="ui four doubling stackable cards">
+
+
+<header class="ui middle aligned center aligned stackable grid segment">
+
+  <a class="ui blue left corner label">
+  <div id="showTOC" class="popup" data-content="Reveal TOC">
+    <i id="toc" class="sitemap big  icon"></i>
+  </div>
+</a>
+
+  <div class="seven wide center aligned column">
+    <h2 class="headder"> Building Modern Web Applications & Services</h2>
+    <p> All Labs in the Course </p>
+  </div>
+
   
+<div class="two wide column sitemap">
+  <div class="popup" data-content="Top Level Topic View">
+    <a href="index.html"> <i class="huge home icon"></i> Topics </a>
+  </div>
+</div>
+
   
+<div class="four wide column">
+  <div class="ui center aligned mini message segment">
+    <a href="mailto://edeleastar@wit.ie"> Eamonn de Leastar <a>.
+    <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+        target="_blank">Creative Commons License
+    </a>
+  </div>
+</div>
+
+  
+<div class="ui two wide right aligned column">
+  <div class="ui left aligned middle aligned very basic grid">
+    <div class="row">
+      <div class="popup" data-content="All Slides in Course">
+        <a href="talkwall.html"> <i class="large film icon"></i> All Slides </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="popup" data-content="All Labs in Course">
+        <a href="labwall.html"> <i class="large lab icon"></i> All Labs </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</header>
+
+      
+      <div class="ui four doubling stackable cards">
+        
+        
   <a class="ui raised link card" href="topic-01-html/book-01-html/index.html">
     <div class="content">
         <div class="right floated meta"> <i class="lab large icon"></i></div>
@@ -105,8 +167,8 @@ figcaption
     </div>
   </a>
 
-  
-  
+        
+        
   <a class="ui raised link card" href="topic-01-html/book-02-templates/index.html">
     <div class="content">
         <div class="right floated meta"> <i class="lab large icon"></i></div>
@@ -123,8 +185,8 @@ figcaption
     </div>
   </a>
 
-  
-  
+        
+        
   <a class="ui raised link card" href="topic-02-css/book-01-css-frameworks-1/index.html">
     <div class="content">
         <div class="right floated meta"> <i class="lab large icon"></i></div>
@@ -141,8 +203,8 @@ figcaption
     </div>
   </a>
 
-  
-  
+        
+        
   <a class="ui raised link card" href="topic-02-css/book-02-css-frameworks-2/index.html">
     <div class="content">
         <div class="right floated meta"> <i class="lab large icon"></i></div>
@@ -159,42 +221,8 @@ figcaption
     </div>
   </a>
 
-  
-  
-  <a class="ui raised link card" href="topic-03-js/book-2-javascript-fundamentals/index.html">
-    <div class="content">
-        <div class="right floated meta"> <i class="lab large icon"></i></div>
-        <div class="header"> error: missing lab </div>
-    </div>
-    <div class="image">
-      <img class="ui bordered rounded image" src="topic-03-js/book-2-javascript-fundamentals/null">
-    </div>
-    <div class="content">
-      <div class="description">
-         
-      </div>
-    </div>
-  </a>
-
-  
-  
-  <a class="ui raised link card" href="topic-03-js/book-3-jquery/index.html">
-    <div class="content">
-        <div class="right floated meta"> <i class="lab large icon"></i></div>
-        <div class="header"> error: missing lab </div>
-    </div>
-    <div class="image">
-      <img class="ui bordered rounded image" src="topic-03-js/book-3-jquery/null">
-    </div>
-    <div class="content">
-      <div class="description">
-         
-      </div>
-    </div>
-  </a>
-
-  
-  
+        
+        
   <a class="ui raised link card" href="topic-03-js+dom/book-1-javascript-intro/index.html">
     <div class="content">
         <div class="right floated meta"> <i class="lab large icon"></i></div>
@@ -211,8 +239,8 @@ figcaption
     </div>
   </a>
 
-  
-  
+        
+        
   <a class="ui raised link card" href="topic-03-js+dom/book-2-javascript-fundamentals/index.html">
     <div class="content">
         <div class="right floated meta"> <i class="lab large icon"></i></div>
@@ -229,8 +257,8 @@ figcaption
     </div>
   </a>
 
-  
-  
+        
+        
   <a class="ui raised link card" href="topic-03-js+dom/book-3-jquery/index.html">
     <div class="content">
         <div class="right floated meta"> <i class="lab large icon"></i></div>
@@ -247,8 +275,8 @@ figcaption
     </div>
   </a>
 
-  
-  
+        
+        
   <a class="ui raised link card" href="topic-04-ajax+apis/book-1-ajax-1/index.html">
     <div class="content">
         <div class="right floated meta"> <i class="lab large icon"></i></div>
@@ -265,8 +293,8 @@ figcaption
     </div>
   </a>
 
-  
-  
+        
+        
   <a class="ui raised link card" href="topic-04-ajax+apis/book-2-ajax-2/index.html">
     <div class="content">
         <div class="right floated meta"> <i class="lab large icon"></i></div>
@@ -277,31 +305,40 @@ figcaption
     </div>
     <div class="content">
       <div class="description">
-         <h1>Foursquare API in NodeConnect to foursquare API and retrieve list of venues based on a simple location and venue keyboard. Log the venues to the console. Use an npm package to access the api.</h1>
+         <p>Connect to foursquare API and retrieve list of venues based on a simple location and venue keyboard. Log the venues to the console. Use an npm package to access the api.</p>
 
       </div>
     </div>
   </a>
 
-  
+        
+        
+  <a class="ui raised link card" href="topic-05-applications/book-applications/index.html">
+    <div class="content">
+        <div class="right floated meta"> <i class="lab large icon"></i></div>
+        <div class="header"> Lab-5 Applications </div>
+    </div>
+    <div class="image">
+      <img class="ui bordered rounded image" src="topic-05-applications/book-applications/img/main.png">
+    </div>
+    <div class="content">
+      <div class="description">
+         <p>Create a new simple HAPI project to serve a simple set of static views. Structure the project into controller, views, public assets and routes. The app offers no user interaction, apart from simple navigation.</p>
+
+      </div>
+    </div>
+  </a>
+
+        
+      </div>
+    </div>
+  </div>
 </div>
 
 
-    </div>
+    <footer>
 
-    
-  <br><br>
-  <div class="ui bottom fixed borderless menu">
-    <div class="ui small item">
-    <p id="footertext">
-    Prepared by  Eamonn de Leastar (edeleastar@wit.ie). Except where otherwise noted, this content is licensed under a
-     <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
-       target="_blank">Creative Commons Attribution-NonCommercial 4.0 License
-     </a>
-     </p>
-    </div>
-  </div>
-
+    </footer>
     <script>
       
 $(document).ready(function()
@@ -322,9 +359,21 @@ $(document).ready(function()
   });
 
 
-})
+  $('.ui.menu .item')
+      .tab({
+        history: true,
+        historyType: 'hash',
+      });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+      .sidebar({ context: $('.pushable') })
+      .sidebar('setting', 'transition', 'slide out')
+      .sidebar('attach events', '#toc');
+});
 
     </script>
-
   </body>
+
  </html>
