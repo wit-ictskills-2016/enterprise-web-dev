@@ -612,25 +612,15 @@ exports.login = {
 &lt;/section&gt;</code></pre>
 <h2>report.hbs</h2>
 <pre><code>&lt;nav class=&quot;ui inverted menu&quot;&gt;
-  &lt;header class=&quot;header item&quot;&gt;&lt;a href=&quot;/&quot;&gt; Donation &lt;/a&gt;&lt;/header&gt;
+  &lt;header class=&quot;header item&quot;&gt; &lt;a href=&quot;/&quot;&gt; Donation &lt;/a&gt; &lt;/header&gt;
   &lt;div class=&quot;right menu&quot;&gt;
-    &lt;a class=&quot;active item&quot; href=&quot;/home&quot;&gt; Donate&lt;/a&gt;
-    &lt;a class=&quot;item&quot; href=&quot;/report&quot;&gt; Report&lt;/a&gt;
-    &lt;a class=&quot;item&quot; href=&quot;/logout&quot;&gt; Logout&lt;/a&gt;
+    &lt;a class=&quot;item&quot; href=&quot;/home&quot;&gt; Donate&lt;/a&gt;
+    &lt;a class=&quot;active item&quot; href=&quot;/report&quot;&gt;  Report&lt;/a&gt;
+    &lt;a class=&quot;item&quot; href=&quot;/logout&quot;&gt;  Logout&lt;/a&gt;
   &lt;/div&gt;
 &lt;/nav&gt;
 
-&lt;section class=&quot;ui raised segment&quot;&gt;
-
-  {{&gt; donate }}
-
-  &lt;div class=&quot;ui  divider&quot;&gt;&lt;/div&gt;
-
-  &lt;div class=&quot;ui teal progress&quot; data-percent=&quot;${progress}&quot; id=&quot;mainprogress&quot;&gt;
-    &lt;div class=&quot;bar&quot;&gt;&lt;/div&gt;
-  &lt;/div&gt;
-
-&lt;/section&gt;</code></pre>
+{{&gt; donationlist }}</code></pre>
 <h1>Layout</h1>
 <p>We also make this adjustment to the layout (to support dropdown controls)</p>
 <h2>layout.hbs</h2>
