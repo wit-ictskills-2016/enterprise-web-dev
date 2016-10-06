@@ -1,0 +1,814 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/solarized-light.min.css" rel="stylesheet" />
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/languages/java.min.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+
+      <style>
+        
+
+body 
+{
+  font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+}
+
+figcaption
+{
+  margin-bottom: 20px;
+}
+
+.vertical-align
+{
+  display: flex;
+  align-items: center;
+}
+
+
+
+    </style>
+
+  </head>
+
+  <body>
+    
+
+<style>
+  
+
+code
+{
+  font-family: "Monaco";
+  font-size: 110%;
+}
+
+img
+{
+  padding:1px;
+  border:1px solid black;
+}
+
+h1
+{
+  font-style:italic;
+  font-size:130%;
+  border-bottom: thin solid black;
+}
+h2
+{
+  font-size:110%;
+  border-bottom: thin solid black;
+}
+h3
+{
+  font-size:100%;
+  border-bottom: thin solid black;
+}
+
+
+
+</style>
+
+<div class="ui fixed top pointing inverted menu labmenu">
+  <header class="header item">
+    <i id="toc" class="sitemap icon"></i>
+    <a href="../index.html">
+      17: Aurelia Introduction
+    </a>
+  </header>
+  <div class="right tab-menu menu">
+    
+    <a class="item" data-tab="Lab-4.3-Ajax-3">
+      Lab-4.3-Ajax-3
+    </a>
+    
+    <a class="item" data-tab="01">
+      01
+    </a>
+    
+    <a class="item" data-tab="02">
+      02
+    </a>
+    
+    <a class="item" data-tab="03">
+      03
+    </a>
+    
+    <a class="item" data-tab="04">
+      04
+    </a>
+    
+    <a class="item" data-tab="05">
+      05
+    </a>
+    
+    <a class="item" data-tab="06">
+      06
+    </a>
+    
+    <a class="item" data-tab="Exercises">
+      Exercises
+    </a>
+    
+    <a class="item" href="../../index.html">
+      <i class="home icon"></i>
+    </a>
+  </div>
+</div>
+
+<div class="ui segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    
+      
+        <a class="item" href="../../topic-01-html/book-01-html/index.html">
+          Lab-1.1 Html
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-01-html/book-02-templates/index.html">
+          Lab-1.2 Templates
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-css/book-01-css-frameworks-1/index.html">
+          Lab-2.1 Css 1
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-02-css/book-02-css-frameworks-2/index.html">
+          Lab-2.2 Css 2
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-js+dom/book-1-javascript-intro/index.html">
+          Lab-3.1 JS Intro
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-js+dom/book-2-javascript-fundamentals/index.html">
+          Lab-3.2 JS Basics
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-03-js+dom/book-3-jquery/index.html">
+          Lab-3.3 JQuery
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-1-ajax-1/index.html">
+          Lab-4.1 Github API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-04-ajax+apis/book-2-ajax-2/index.html">
+          Lab-4.2-FoureSquare API
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-05-applications/book-applications/index.html">
+          Lab-5 Applications
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-06-views/book-views/index.html">
+          Lab-6 Views
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-07-sessions/book-sessions/index.html">
+          Lab-7 Sessions
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-08-models/book-models/index.html">
+          Lab-8 Models
+        </a>
+      
+    
+      
+        <a class="active item" href="../../topic-16-aurelia-intro/book-1-web-app/index.html">
+          Lab-4.3-Ajax-3
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-16-aurelia-intro/book-2-aurelia-app/index.html">
+          Lab-16 Spa 1
+        </a>
+      
+    
+      
+        <a class="item" href="../../topic-17-aurelia-apps/book-spa-2/index.html">
+          Lab-17 Spa 2
+        </a>
+      
+    
+  </div>
+  <div class="pusher">
+    <div class="ui basic segment">
+      <br>
+      
+      <div  class="ui tab segment lab" data-tab="Lab-4.3-Ajax-3">
+        <h1>Objectives</h1>
+<p>Retrieve a list of venues+ details from foursquare, and display them in a table on a web page. Use JQuery getJSON to access the api.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="01">
+        <h1>Setup</h1>
+<p>Create w new empty project in web-storm called <code>js-ajax-3</code></p>
+<p>From your previous project bring in:</p>
+<ul>
+<li>.jscsrc</li>
+</ul>
+<p>If you are committing the project to git, then you might use this <code>.gitignore</code> file:</p>
+<h2>.gitignore</h2>
+<pre><code>.idea
+node_modules</code></pre>
+<p>Bring in our credentials - this time in a slightly different format:</p>
+<h2>fs-config.js</h2>
+<pre><code>var fsConfig = {
+  base_url: &#39;https://api.foursquare.com/v2/venues/explore?&#39;,
+  client_id: &#39;Your ID&#39;,
+  client_secret: &#39;Your Secret&#39;,
+};</code></pre>
+<p>Introduce this index page:</p>
+<h2>index.html</h2>
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;foursquare :: Explore Sample&lt;/title&gt;
+    &lt;link href=&#39;https://fonts.googleapis.com/css?family=Open+Sans&#39; rel=&#39;stylesheet&#39; type=&#39;text/css&#39;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2/semantic.min.css&quot; type=&quot;text/css&quot;&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-2.2.3.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2/semantic.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;section class=&quot;ui container&quot;&gt;
+      &lt;div class=&quot;ui raised blue inverted center aligned segment&quot;&gt;
+        &lt;h1 class=&quot;ui header&quot;&gt;FoureSquare Search&lt;/h1&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;ui center aligned rasied segment&quot;&gt;
+        &lt;input type=&quot;text&quot; name=&quot;location&quot; id=&quot;location_name&quot; placeholder=&quot;Waterford,IE&quot; class=&quot;search-input&quot;&gt;
+        &lt;input type=&quot;text&quot; name=&quot;venue_keyword&quot; id=&quot;venue_keyword&quot; placeholder=&quot;Keywords e.g geoff&quot;
+               class=&quot;search-input&quot;&gt;
+        &lt;button id=&quot;search_btn&quot; class=&quot;ui primary button&quot;&gt;Search&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;table class=&quot;ui table&quot; id=&quot;venue_table&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Total Check-Ins&lt;/th&gt;
+            &lt;th&gt;Total Current Visit&lt;/th&gt;
+            &lt;th&gt;Link&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+      &lt;/table&gt;
+    &lt;/section&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Opening in the browser, it should look like this:</p>
+<p><img src="img/01.png" alt=""></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="02">
+        <h1>fs-simple.js</h1>
+<p>Introduce the following file into your project:</p>
+<h2>fs-simple.js</h2>
+<pre><code>$(&#39;#search_btn&#39;).click(function () {
+  console.log(fsConfig);
+});</code></pre>
+<p>To incorporate this script into our web page, we need to included it on the <code>index.html</code> page. </p>
+<h2>index.html</h2>
+<pre><code>    &lt;/section&gt;
+    &lt;script src=&quot;fs-config.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;fs-simple.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Note we are including both js files. Browsing now - and opening the developer tools in chome - we should see this:</p>
+<p><img src="img/02.png" alt=""></p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="03">
+        <h1>Populate the Table</h1>
+<p>In order to rest out the view, we introduce some test data into the <code>fs-simple.js</code> script:</p>
+<pre><code>const checkinTestData = [
+  {
+    name: &#39;Bodega!&#39;,
+    checkins: 181,
+    users: 41,
+    link: &#39;https://foursquare.com/v/bodega/4d8c8c916174a09396389be3&#39;,
+  },
+  {
+    name: &#39;Carters Chocklate Cafe&#39;,
+    checkins: 159,
+    users: 55,
+    link: &#39;https://foursquare.com/v/carters-chocolate-cafe/4cea8f1ffe90a35d23714e0e&#39;,
+  },
+  {
+    name: &#39;Geoffs Cafe Bar&#39;,
+    checkins: 802,
+    users: 286,
+    link: &#39;https://foursquare.com/v/geoffs-caf%C3%A9-bar/4b899439f964a5205a4332e3&#39;,
+  },
+];</code></pre>
+<p>We can populate the table using JQuery - this helper function here will keep our code simple:</p>
+<pre><code>function displayCheckins(checkins) {
+  for (var i = 0; i &lt; checkins.length; i++) {
+    $(&#39;#venue_table&#39;).append(&#39;&lt;tr&gt;&lt;td&gt;&#39; + checkins[i].name + &#39;&lt;/td&gt;&#39; +
+        &#39;&lt;td&gt;&#39; + checkins[i].checkins + &#39;&lt;/td&gt;&#39; +
+        &#39;&lt;td&gt;&#39; + checkins[i].users + &#39;&lt;/td&gt;&#39; +
+        &#39;&lt;td&gt;&#39; + checkins[i].link + &#39;&lt;/td&gt;&lt;/tr&gt;&#39;);
+  }
+}</code></pre>
+<p>Now we can test it out:</p>
+<pre><code>$(&#39;#search_btn&#39;).click(function () {
+  console.log(fsConfig);
+  displayCheckins(checkinTestData);
+});</code></pre>
+<p>We should see:</p>
+<p><img src="img/03.png" alt=""></p>
+<p>The Template Literals feature in ES6</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals">https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals</a></li>
+</ul>
+<p>.. can make out <code>displayCheckins</code> function considerably easier to maintain:</p>
+<pre><code>function displayCheckins(checkins) {
+  for (var i = 0; i &lt; checkins.length; i++) {
+    $(&#39;#venue_table&#39;).append(`
+      &lt;tr&gt;
+        &lt;td&gt;  ${checkins[i].name}  &lt;/td&gt;
+        &lt;td&gt;  ${checkins[i].checkins}  &lt;/td&gt;
+        &lt;td&gt;  ${checkins[i].users} &lt;/td&gt;
+        &lt;td&gt;  ${checkins[i].link}  &lt;/td&gt;
+      &lt;/tr&gt;`);
+  }
+}</code></pre>
+<p>Note that the above uses the <code>backtick</code> character to open and close the string.</p>
+<p>And we can even further simplify by using a forEach loop:</p>
+<pre><code>function displayCheckins(checkins) {
+  for (let checkin of checkins) {
+    $(&#39;#venue_table&#39;).append(`
+      &lt;tr&gt;
+        &lt;td&gt;  ${checkin.name}  &lt;/td&gt;
+        &lt;td&gt;  ${checkin.checkins}  &lt;/td&gt;
+        &lt;td&gt;  ${checkin.users} &lt;/td&gt;
+        &lt;td&gt;  ${checkin.link}  &lt;/td&gt;
+      &lt;/tr&gt;`);
+  }
+}</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="04">
+        <h1>JQuery Ajax</h1>
+<p>We can remove the test data now:</p>
+<pre><code>const checkinTestData = [
+  {
+    name: &#39;Bodega!&#39;,
+    checkins: 181,
+    users: 41,
+    link: &#39;https://foursquare.com/v/bodega/4d8c8c916174a09396389be3&#39;,
+  },
+  {
+    name: &#39;Carters Chocklate Cafe&#39;,
+    checkins: 159,
+    users: 55,
+    link: &#39;https://foursquare.com/v/carters-chocolate-cafe/4cea8f1ffe90a35d23714e0e&#39;,
+  },
+  {
+    name: &#39;Geoffs Cafe Bar&#39;,
+    checkins: 802,
+    users: 286,
+    link: &#39;https://foursquare.com/v/geoffs-caf%C3%A9-bar/4b899439f964a5205a4332e3&#39;,
+  },
+];</code></pre>
+<p>as we will query directly from the api. Include the convenience credentials variable:</p>
+<pre><code>var fsCredentials = &#39;&amp;client_id=&#39; + fsConfig.client_id + &#39;&amp;client_secret=&#39; + fsConfig.client_secret + &#39;&amp;v=20140601&#39;;</code></pre>
+<p>... and we can replace our search button handler with this version:</p>
+<pre><code>$(&#39;#search_btn&#39;).click(function () {
+  $(&#39;#venue_table tbody&#39;).remove();
+  const locationName = $(&#39;#location_name&#39;).val();
+  const venueKeyword = $(&#39;#venue_keyword&#39;).val();
+  loadVenues(locationName, venueKeyword);
+});</code></pre>
+<p>The above reads the values in the location and venue text fields, and calls the <code>loadVenues</code> method. In the last lab we finished up with this version of <code>loadvenues</code>:</p>
+<pre><code>function loadVenues(locationName, venueKeyword) {
+  var requestOptions = {
+    url: fsConfig.base_url + &#39;near=&#39; + locationName + &#39;&amp;query=&#39; + venueKeyword + fsCredentials,
+    method: &#39;GET&#39;,
+    json: {},
+  };
+  request(requestOptions, (err, response, body) =&gt; {
+    const venues = body.response.groups[0].items;
+    const checkins = [];
+    for (let venue of venues) {
+      const checkin = {
+        name: venue.venue.name,
+        checkins: venue.venue.stats.checkinsCount,
+        users: venue.venue.stats.usersCount,
+      };
+      checkins.push(checkin);
+    }
+
+    console.log(checkins);
+  });
+}</code></pre>
+<p>It will almost do - but we do not have access to the <code>request</code> library we had for that experiment. Instead, we will use the JQuery <code>getJSON</code> helper function:</p>
+<ul>
+<li><a href="http://api.jquery.com/jquery.getjson/">http://api.jquery.com/jquery.getjson/</a></li>
+</ul>
+<p>This acts as a simple wrapper around the ajax call. Here is a version that will work:</p>
+<pre><code>function loadVenues(locationName, venueKeyword) {
+  var requestOptions = {
+    url: fsConfig.base_url + &#39;near=&#39; + locationName + &#39;&amp;query=&#39; + venueKeyword + fsCredentials,
+    method: &#39;GET&#39;,
+    json: {},
+  };
+  $.getJSON(requestOptions.url, {}, body =&gt; {
+    const venues = body.response.groups[0].items;
+    const checkins = [];
+    for (let venue of venues) {
+      const checkin = {
+        name: venue.venue.name,
+        checkins: venue.venue.stats.checkinsCount,
+        users: venue.venue.stats.usersCount,
+      };
+      checkins.push(checkin);
+    }
+
+    displayCheckins(checkins);
+  });
+}</code></pre>
+<p>Try this now - it should be retrieving the venues from foursquare (dont forget to type in the location).</p>
+<p>This is the complete <code>fs-simple.js</code> at this stage:</p>
+<pre><code>var fsCredentials = &#39;&amp;client_id=&#39; + fsConfig.client_id + &#39;&amp;client_secret=&#39; + fsConfig.client_secret + &#39;&amp;v=20140601&#39;;
+
+function displayCheckins(checkins) {
+  for (let checkin of checkins) {
+    $(&#39;#venue_table&#39;).append(`
+      &lt;tr&gt;
+        &lt;td&gt;  ${checkin.name}  &lt;/td&gt;
+        &lt;td&gt;  ${checkin.checkins}  &lt;/td&gt;
+        &lt;td&gt;  ${checkin.users} &lt;/td&gt;
+        &lt;td&gt;  ${checkin.link}  &lt;/td&gt;
+      &lt;/tr&gt;`);
+  }
+}
+
+function loadVenues(locationName, venueKeyword) {
+  var requestOptions = {
+    url: fsConfig.base_url + &#39;near=&#39; + locationName + &#39;&amp;query=&#39; + venueKeyword + fsCredentials,
+    method: &#39;GET&#39;,
+    json: {},
+  };
+  $.getJSON(requestOptions.url, {}, body =&gt; {
+    const venues = body.response.groups[0].items;
+    const checkins = [];
+    for (let venue of venues) {
+      const checkin = {
+        name: venue.venue.name,
+        checkins: venue.venue.stats.checkinsCount,
+        users: venue.venue.stats.usersCount,
+      };
+      checkins.push(checkin);
+    }
+
+    displayCheckins(checkins);
+  });
+}
+
+$(&#39;#search_btn&#39;).click(function () {
+  $(&#39;#venue_table tbody&#39;).remove();
+  const locationName = $(&#39;#location_name&#39;).val();
+  const venueKeyword = $(&#39;#venue_keyword&#39;).val();
+  loadVenues(locationName, venueKeyword);
+});</code></pre>
+<p>Contrast this with the version we finalised in the last lab.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
+        <h1>Insomnia REST Client</h1>
+<p>You may have downloaded this client in the last lab:</p>
+<ul>
+<li><a href="https://insomnia.rest/">https://insomnia.rest/</a></li>
+</ul>
+<p>Lets configure it now to make some requests. See if you can replicate exactly the following request configuration:</p>
+<p><img src="img/05.png" alt=""></p>
+<p>Pressing send will return a successful response:</p>
+<p><img src="img/06.png" alt=""></p>
+<p>Retrieving photos is not so easy however. In fact no photo information is returned by default anyway. Looking in the Json, we see something like this for all venues:</p>
+<pre><code>              &quot;photos&quot;: {
+                &quot;count&quot;: 0,
+                &quot;groups&quot;: []
+              },</code></pre>
+<p>However, we will get at least 1 photo if we add the the <code>&amp;venuePhotos=1</code> query parameter:</p>
+<p><img src="img/07." alt=""></p>
+<p>If you configure Insomnia as above, we should see something like this in the photos section for a venue:</p>
+<pre><code>&quot;photos&quot;: {
+                &quot;count&quot;: 1,
+                &quot;groups&quot;: [
+                  {
+                    &quot;type&quot;: &quot;venue&quot;,
+                    &quot;name&quot;: &quot;Venue photos&quot;,
+                    &quot;count&quot;: 1,
+                    &quot;items&quot;: [
+                      {
+                        &quot;id&quot;: &quot;574dcae938fa4728d875ac07&quot;,
+                        &quot;createdAt&quot;: 1464716009,
+                        &quot;prefix&quot;: &quot;https://irs3.4sqi.net/img/general/&quot;,
+                        &quot;suffix&quot;: &quot;/9538229_6Jw8lswCJJ-vI3WTCY1EZ-CDS-9oEzbSoWelXG1Scyc.jpg&quot;,
+                        &quot;width&quot;: 1434,
+                        &quot;height&quot;: 1919,
+                        &quot;user&quot;: {
+                          &quot;id&quot;: &quot;9538229&quot;,
+                          &quot;firstName&quot;: &quot;Ed&quot;,
+                          &quot;lastName&quot;: &quot;Schmitt&quot;,
+                          &quot;gender&quot;: &quot;male&quot;,
+                          &quot;photo&quot;: {
+                            &quot;prefix&quot;: &quot;https://irs1.4sqi.net/img/user/&quot;,
+                            &quot;suffix&quot;: &quot;/4NFJINQ2PM2I22Y1.jpg&quot;
+                          }
+                        },
+                        &quot;visibility&quot;: &quot;public&quot;
+                      }
+                    ]
+                  }
+                ]
+              },</code></pre>
+<p>The full photo url will need to be patched together programatically from this. See:</p>
+<ul>
+<li><a href="https://developer.foursquare.com/docs/responses/photo">https://developer.foursquare.com/docs/responses/photo</a></li>
+</ul>
+<p>So, for instance in the above response, the actual image url is:</p>
+<ul>
+<li><a href="https://irs3.4sqi.net/img/general/original/9538229_6Jw8lswCJJ-vI3WTCY1EZ-CDS-9oEzbSoWelXG1Scyc.jpg">https://irs3.4sqi.net/img/general/original/9538229_6Jw8lswCJJ-vI3WTCY1EZ-CDS-9oEzbSoWelXG1Scyc.jpg</a></li>
+</ul>
+<p>This is the <code>original</code> resolution, other formats are also available.</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="06">
+        <h2>Fetching Images</h2>
+<p>To retrieve images programatically, we extend the query parameter to include <code>&amp;venuePhotos=1</code></p>
+<pre><code>  var requestOptions = {
+    url: fsConfig.base_url + &#39;near=&#39; + locationName + &#39;&amp;query=&#39; + venueKeyword + &#39;&amp;venuePhotos=1&#39; + fsCredentials,
+    method: &#39;GET&#39;,
+    json: {},
+  };</code></pre>
+<p>This will make sure we get the additional photo info in the response.</p>
+<p>We could display the images in a table - but Semantic-UI has an attractive Pintrest style card layout it would be interesting to use:</p>
+<ul>
+<li><a href="http://semantic-ui.com/views/card.html">http://semantic-ui.com/views/card.html</a></li>
+</ul>
+<p>First, completely replace the <code>&lt;table&gt;</code> in index.html with a container for these cards:</p>
+<pre><code>      &lt;div class=&quot;ui four stackable link cards&quot; id=&quot;venue_cards&quot;&gt;
+      &lt;/div&gt;</code></pre>
+<p>Notice we are using a <code>link</code> card:</p>
+<ul>
+<li><a href="http://semantic-ui.com/views/card.html#link-card">http://semantic-ui.com/views/card.html#link-card</a></li>
+</ul>
+<p>They are also <code>stackable</code></p>
+<ul>
+<li><a href="http://semantic-ui.com/views/card.html#stackable">http://semantic-ui.com/views/card.html#stackable</a></li>
+</ul>
+<p>... and we have a <code>column count</code> for the cards:</p>
+<ul>
+<li><a href="http://semantic-ui.com/views/card.html#column-count">http://semantic-ui.com/views/card.html#column-count</a></li>
+</ul>
+<p>We change <code>locationVenues</code> function to take a jQuery reference to this container:</p>
+<pre><code>  loadVenues(locationName, venueKeyword, $(&#39;#venue_cards&#39;));</code></pre>
+<p>.. and this is a revised version of the loadVenues functions:</p>
+<pre><code>function loadVenues(locationName, venueKeyword, cardSection) {
+  var requestOptions = {
+    url: fsConfig.base_url + &#39;near=&#39; + locationName + &#39;&amp;query=&#39; + venueKeyword + &#39;&amp;venuePhotos=1&#39; + fsCredentials,
+    method: &#39;GET&#39;,
+    json: {},
+  };
+  $.getJSON(requestOptions.url, {}, body =&gt; {
+    const venues = body.response.groups[0].items;
+    const checkins = [];
+    for (let venue of venues) {
+      const checkin = {
+        name: venue.venue.name,
+        checkins: venue.venue.stats.checkinsCount,
+        users: venue.venue.stats.usersCount,
+        url: venue.venue.url,
+        rating: venue.venue.rating,
+      };
+      checkins.push(checkin);
+    }
+
+    displayCheckins(checkins, cardSection);
+  });
+}</code></pre>
+<p>This is more or less the same as the previous version. </p>
+<p>We need to completely rewrite the <code>displayCheckins</code> function however:</p>
+<pre><code>function displayCheckins(checkins, cardSection) {
+  for (let checkin of checkins) {
+    cardSection.append(`
+        &lt;a class=&quot;ui link raised card&quot; href=&quot;${this.url}&quot;&gt;
+          &lt;div class=&quot;ui content&quot;&gt;
+            &lt;div class=&quot;right floated meta&quot;&gt;
+              &lt;div class=&quot;ui teal circular label&quot;&gt; ${checkin.rating}&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;header&quot;&gt;${checkin.name}&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;ui image&quot;&gt;
+            &lt;img src=&quot;${checkin.imageUrl}&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;content&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;extra content&quot;&gt;
+            &lt;span class=&quot;right floated&quot;&gt;
+              ${checkin.checkins} Checkins
+            &lt;/span&gt;
+            &lt;span&gt;
+              &lt;i class=&quot;user icon&quot;&gt;&lt;/i&gt;
+              ${checkin.users} Users
+            &lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;`);
+  }
+}</code></pre>
+<p>Try this now - it will populate a set of cards, but the images will be undefined. </p>
+<p>Before we call push the checkin onto the array, we need to build the imageUrl:</p>
+<pre><code>      if (venue.venue.photos.count) {
+        const prefix = venue.venue.photos.groups[0].items[0].prefix;
+        const suffix = venue.venue.photos.groups[0].items[0].suffix;
+        checkin.imageUrl = prefix + &#39;original&#39; + suffix;
+      }
+
+      checkins.push(checkin);</code></pre>
+<p>Try this now - we should see something like this:</p>
+<p><img src="img/08.png" alt=""></p>
+<p>This is the complete code:</p>
+<h2>fs-simple.js</h2>
+<pre><code>var fsCredentials = &#39;&amp;client_id=&#39; + fsConfig.client_id + &#39;&amp;client_secret=&#39; + fsConfig.client_secret + &#39;&amp;v=20140601&#39;;
+
+function displayCheckins(checkins, cardSection) {
+  for (let checkin of checkins) {
+    cardSection.append(`
+        &lt;a class=&quot;ui link raised card&quot; href=&quot;${this.url}&quot;&gt;
+          &lt;div class=&quot;ui content&quot;&gt;
+            &lt;div class=&quot;right floated meta&quot;&gt;
+              &lt;div class=&quot;ui teal circular label&quot;&gt; ${checkin.rating}&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;header&quot;&gt;${checkin.name}&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;ui image&quot;&gt;
+            &lt;img src=&quot;${checkin.imageUrl}&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;content&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;extra content&quot;&gt;
+            &lt;span class=&quot;right floated&quot;&gt;
+              ${checkin.checkins} Checkins
+            &lt;/span&gt;
+            &lt;span&gt;
+              &lt;i class=&quot;user icon&quot;&gt;&lt;/i&gt;
+              ${checkin.users} Users
+            &lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;`);
+  }
+}
+
+function loadVenues(locationName, venueKeyword, cardSection) {
+  var requestOptions = {
+    url: fsConfig.base_url + &#39;near=&#39; + locationName + &#39;&amp;query=&#39; + venueKeyword + &#39;&amp;venuePhotos=1&#39; + fsCredentials,
+    method: &#39;GET&#39;,
+    json: {},
+  };
+  $.getJSON(requestOptions.url, {}, body =&gt; {
+    const venues = body.response.groups[0].items;
+    const checkins = [];
+    for (let venue of venues) {
+      const checkin = {
+        name: venue.venue.name,
+        checkins: venue.venue.stats.checkinsCount,
+        users: venue.venue.stats.usersCount,
+        url: venue.venue.url,
+        rating: venue.venue.rating,
+      };
+
+      if (venue.venue.photos.count) {
+        const prefix = venue.venue.photos.groups[0].items[0].prefix;
+        const suffix = venue.venue.photos.groups[0].items[0].suffix;
+        checkin.imageUrl = prefix + &#39;original&#39; + suffix;
+      }
+
+      checkins.push(checkin);
+    }
+
+    displayCheckins(checkins, cardSection);
+  });
+}
+
+$(&#39;#search_btn&#39;).click(function () {
+  $(&#39;#venue_table tbody&#39;).remove();
+  const locationName = $(&#39;#location_name&#39;).val();
+  const venueKeyword = $(&#39;#venue_keyword&#39;).val();
+  loadVenues(locationName, venueKeyword, $(&#39;#venue_cards&#39;));
+});</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="Exercises">
+        <h1>Exercises</h1>
+<p>Archive of project:</p>
+<ul>
+<li><a href="https://github.com/wit-ictskills-2016/js-ajax-3">https://github.com/wit-ictskills-2016/js-ajax-3</a></li>
+</ul>
+<h2>Exercise 1:</h2>
+<p>Here is a possible extension to the ui to show &#39;top tips&#39;:</p>
+<p><img src="img/09.png" alt=""></p>
+<p>These are visible on the foursquare web app itself:</p>
+<ul>
+<li><a href="https://foursquare.com/explore?mode=url&amp;near=Waterford%2C%20Co%20Waterford%2C%20Ireland&amp;nearGeoId=72057594040888928">https://foursquare.com/explore?mode=url&amp;near=Waterford%2C%20Co%20Waterford%2C%20Ireland&amp;nearGeoId=72057594040888928</a></li>
+</ul>
+<p>Extend the card to include this information. There will be no need to change any of the request parameters. Use Insomnia to locate these tips, and try to render them into the card.</p>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+  <div class="ui bottom fixed borderless right menu">
+    <div class="ui right tiny menu">
+      <div class="ui mini message segment">
+        <a href="mailto://edeleastar@wit.ie"> Eamonn de Leastar <a>.
+        <a  href="http://creativecommons.org/licenses/by-nc/4.0/" title="External link to http://creativecommons.org/licenses/by-nc/4.0/"
+            target="_blank">Creative Commons License
+        </a>
+      </div>
+    </div>
+  </div>
+
+    <footer>
+
+    </footer>
+    <script>
+      
+$(document).ready(function()
+{
+  $("img").addClass ("ui image");
+  $('.ui.embed').embed();
+
+  var images = $(".lab img");
+  jQuery.each(images, function(i)  {
+    if((images[i].alt).length > 0)
+    {
+      var div_img = $(document.createElement("div")).addClass("ui segment");
+      $(images[i]).wrap(div_img);
+      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
+      div_label.append(images[i].alt);
+      $(div_label).insertBefore(images[i]);
+    }
+  });
+
+
+  $('.ui.menu .item')
+      .tab({
+        history: true,
+        historyType: 'hash',
+      });
+
+  $('.popup').popup();
+
+  $('.ui.sidebar')
+      .sidebar({ context: $('.pushable') })
+      .sidebar('setting', 'transition', 'slide out')
+      .sidebar('attach events', '#toc');
+});
+
+    </script>
+  </body>
+
+ </html>
