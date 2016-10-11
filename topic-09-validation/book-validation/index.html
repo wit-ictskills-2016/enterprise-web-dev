@@ -352,6 +352,7 @@ exports.updateSettings = {
 };</code></pre>
 <p>This will ensure that the donor object will be retrieve on the single query - and thus our donor object should successfully resolve in the form.</p>
 <p>Try this now and verify that the donor&#39;s full name is displayed in the report view.</p>
+<p>You may notice that it does not work on the first attempt - as your Mongo database may have older version of the donation object in the donations collection. These older reference do not have the donor id as a field, and hence the above query will throw an exception. Delete all your donations objects completed, and the app should run correctly.</p>
 
       </div>
      
