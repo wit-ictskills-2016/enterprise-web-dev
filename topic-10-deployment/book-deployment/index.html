@@ -122,6 +122,10 @@ h3
       07
     </a>
     
+    <a class="item" data-tab="08">
+      08
+    </a>
+    
     <a class="item" data-tab="Exercises">
       Exercises
     </a>
@@ -477,6 +481,37 @@ A  routes.js</code></pre>
       </div>
      
       <div  class="ui tab segment lab" data-tab="04">
+        <h1>MongoLab</h1>
+<p>Create a free account here:</p>
+<ul>
+<li><a href="https://mlab.com">https://mlab.com</a></li>
+</ul>
+<p>Once you have successfully logged in, create a new MongoDB deployment called <code>donation</code>:</p>
+<p><img src="img/09.png" alt=""></p>
+<p>Inspect the database:</p>
+<p><img src="img/10.png" alt=""></p>
+<p>and in the users tab, create a new user for this database. Use &#39;donationuser&#39; for the username and password.</p>
+<p>Note carefully the connection string at the top of the page:</p>
+<pre><code> mongodb://&lt;dbuser&gt;:&lt;dbpassword&gt;@ds052323.mlab.com:1234/donation</code></pre>
+<p>You will need to formulate a connection string using the <code>donationuser</code> you have just created. It might look like this:</p>
+<pre><code> mongodb://donationuser:donationuser@ds055626.mlab.com:55626/donation</code></pre>
+<p>(not exactly the above as you will have different server/port addresses etc..)</p>
+<p>To test this connection string out, look again at our db.js module:</p>
+<h2>app/models/db.js</h2>
+<pre><code>...
+var dbURI = &#39;mongodb://localhost/donation&#39;;
+if (process.env.NODE_ENV === &#39;production&#39;) {
+  dbURI = process.env.MONGODB_URI;
+}
+...</code></pre>
+<p>Purely as a temporary measure, change the dbURI initlisation to use your connection string:</p>
+<pre><code>var dbURI = &#39;mongodb://donationuser:donationuser@ds0XXXX.mlab.com:XXXX/donation&#39;;</code></pre>
+<p>Restart the app, and see if it launches successfully. As you register users / make donations, observe the database on MongoLab. You should see the collections being populated on that service.</p>
+<p>If it works, then change it back to what it was, but keep the connection string (as a comment for the moment).</p>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="05">
         <h1>Heroku</h1>
 <p>Verify that the following command responds with a recent version number:</p>
 <pre><code>heroku --version</code></pre>
@@ -495,20 +530,10 @@ https://calm-brushlands-29225.herokuapp.com/ | https://git.heroku.com/calm-brush
 <li><a href="https://dashboard.heroku.com/apps">https://dashboard.heroku.com/apps</a></li>
 </ul>
 <p>Explore the dashboard for the app for a few minutes. We havent deployed it yet however.</p>
-<p>Because we are using a mongo database, we need to provision this feature:</p>
-<pre><code>heroku addons:create mongolab</code></pre>
-<p>This should respond as follows:</p>
-<pre><code>Creating mongolab-silhouetted-58540... done, (free)
-Adding mongolab-silhouetted-58540 to agile-depths-49364... done
-Setting MONGODB_URI and restarting agile-depths-49364... done, v3
-Welcome to mLab.  Your new subscription is being created and will be available shortly.  Please consult the mLab Add-on Admin UI to check on its progress.
-Use `heroku addons:docs mongolab` to view documentation.</code></pre>
-<p>Check the dashboard again - and verify that the MondoDB has been attached:</p>
-<p><img src="img/07.png" alt=""></p>
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="05">
+      <div  class="ui tab segment lab" data-tab="06">
         <h2>Prepare Application for Deployment</h2>
 <p>Before we deploy the application, we need to incorporate a small change to <code>package.json</code>:</p>
 <pre><code>    &quot;start&quot;: &quot;node index&quot;,</code></pre>
@@ -706,7 +731,7 @@ To https://git.heroku.com/agile-depths-49364.git
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="06">
+      <div  class="ui tab segment lab" data-tab="07">
         <h1>Production Mode DB URI</h1>
 <p>Although the app will launch, we will not be able to get beyond the sign up screen. Trying to register a new user will generate an internal error on the app.</p>
 <p>It can be challenging to debug these errors without access to the log. From within the project folder, enter the following command:</p>
@@ -726,24 +751,31 @@ To https://git.heroku.com/agile-depths-49364.git
 if (process.env.NODE_ENV === &#39;production&#39;) {
   dbURI = process.env.MONGOLAB_URI;
 }</code></pre>
-<p>We have a small correction to make here: the url needs to change to :</p>
-<pre><code>  dbURI = process.env.MONGODB_URI;</code></pre>
-<p>This code instructs the app to connect to an alternative mongo database when in <code>production</code> mode.  We set this mode on heroku now on the command line:</p>
+<p>The app is not connecting to the correct database. To fix this, we need to do two things:</p>
+<ul>
+<li>(1) Set the app to &#39;production&#39; mode</li>
+<li>(2) Set the string <code>MONGOLAB_URI</code> to our database on mongoLab</li>
+</ul>
+<h2>1: Enable production mode:</h2>
+<p>On the command line, in your app folder enter:</p>
 <pre><code>heroku config:set NODE_ENV=&quot;production&quot;</code></pre>
 <p>This should respond with:</p>
 <pre><code>Setting NODE_ENV and restarting ⬢ agile-depths-49364... done, v4
 NODE_ENV: production</code></pre>
+<h2>2: Setting the MongoLab connection string:</h2>
+<p>Also on the command line, in your app folder enter:</p>
+<pre><code>heroku config:set MONGOLAB_URI=mongodb://donationuser:donationuser@dsXXX.mlab.com:XXXX/donation</code></pre>
+<p>(use the string from your app in step 4)</p>
 <p>Now restart the app:</p>
 <pre><code>heroku restart</code></pre>
 <p>We should be able to fully exercise the application now. Keep an eye on the log window if you have it still open.</p>
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="07">
+      <div  class="ui tab segment lab" data-tab="08">
         <h1>Connecting Robomongo to the MongoLab (heroku) database</h1>
-<p>The database we are now using is in the cloud - and it might be useful to be able to browse directly to it. First, we need to acquire the actual url:</p>
-<pre><code>heroku config:get MONGODB_URI</code></pre>
-<p>This will return a lengthy connection string, something like this:</p>
+<p>The database we are now using is on mongoLab- and it might be useful to be able to browse directly to it.</p>
+<p>We already have the connection string - for example something like this:</p>
 <pre><code>mongodb://heroku_4pt2zvkj:omev5e4sctvbiaa0i1t5cbstdj@ds011902.mlab.com:11902/heroku_4pt2zvkj</code></pre>
 <p>This encodes the following:</p>
 <ul>
@@ -752,7 +784,7 @@ NODE_ENV: production</code></pre>
 <li>database: heroku_4pt2zvkj</li>
 <li>password: omev5e4sctvbiaa0i1t5cbstdj</li>
 </ul>
-<p>Extract the corresponding from your connection string and enter them in Robomong &#39;New Connection&#39; panels:</p>
+<p>Extract the corresponding from your connection string and enter them in Robomongo &#39;New Connection&#39; panels:</p>
 <p><img src="img/01.png" alt="">
 <img src="img/02.png" alt=""></p>
 <p>If it works - you should be able to browse directly to the remote database:</p>
