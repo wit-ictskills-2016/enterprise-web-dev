@@ -542,7 +542,7 @@ suite(&#39;Donation API tests&#39;, function () {
   let donations = fixtures.donations;
   let newCandidate = fixtures.newCandidate;
 
-  const donationService = new DonationService(fixtures.donationService);
+  const donationService = new DonationService(&#39;http://localhost:4000&#39;);
 
   beforeEach(function () {
     donationService.deleteAllCandidates();
