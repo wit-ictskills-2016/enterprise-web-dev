@@ -425,7 +425,7 @@ exports.findAllDonations = {
         <h1>Creating &amp; Deleting Donations</h1>
 <p>Creating a donation, and associating it with a candidate, can be implemented using a similar pattern to retrieving donations for a candidate:</p>
 <h2>routesapi.js</h2>
-<pre><code>  { method: &#39;POST&#39;, path: &#39;/api/candidates/{id}/donations&#39;, config: CandidatesApi.makeDonation },</code></pre>
+<pre><code>  { method: &#39;POST&#39;, path: &#39;/api/candidates/{id}/donations&#39;, config: DonationsApi.makeDonation },</code></pre>
 <p>We can define a route to delete all donations:</p>
 <pre><code>  { method: &#39;DELETE&#39;, path: &#39;/api/donations&#39;, config: DonationsApi.deleteAllDonations },</code></pre>
 <p>These are the implementations:</p>
