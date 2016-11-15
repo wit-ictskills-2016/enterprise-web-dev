@@ -85,7 +85,7 @@ h3
   <header class="header item">
     <i id="toc" class="sitemap icon"></i>
     <a href="../index.html">
-      10: Aurelia Introduction
+      19: Aurelia Introduction
     </a>
   </header>
   <div class="right tab-menu menu">
@@ -244,6 +244,12 @@ h3
       
     
       
+        <a class="item" href="../../topic-14-rest/book-rest/index.html">
+          Lab-14 Rest
+        </a>
+      
+    
+      
         <a class="item" href="../../topic-15-rest-client-java/book-rest-client/index.html">
           Lab-15 Rest Java Cient
         </a>
@@ -256,26 +262,8 @@ h3
       
     
       
-        <a class="item" href="../../topic-17-auth/book-auth/index.html">
-          Lab-17 Auth
-        </a>
-      
-    
-      
-        <a class="item" href="../../topic-18-secure-android-client/book-secure-android/index.html">
-          Lab-18 Secure Android
-        </a>
-      
-    
-      
         <a class="active item" href="../../topic-19-aurelia-1/book-aurelia-1/index.html">
           Lab-19 Aurelia 1
-        </a>
-      
-    
-      
-        <a class="item" href="../../topic-22-android-service/book-android-service/index.html">
-          Lab-22 Android Service
         </a>
       
     
@@ -286,6 +274,7 @@ h3
       
       <div  class="ui tab segment lab" data-tab="Lab-19 Aurelia 1">
         <h1>Objectives</h1>
+<p>Install and configure aurelia. Build a simple viewmode/view pair. Place this in the context of an app view/viewmodel.</p>
 
       </div>
      
@@ -722,7 +711,7 @@ export class Report {
   &lt;/div&gt;
 
 &lt;/template&gt;</code></pre>
-<h3>src/templates/donate.html</h3>
+<h3>src/viewmodels/donate.html</h3>
 <pre><code>&lt;template&gt;
 
     &lt;form submit.trigger=&quot;makeDonation()&quot; class=&quot;ui form stacked segment&quot;&gt;
@@ -762,7 +751,7 @@ export class Report {
     &lt;/form&gt;
 
 &lt;/template&gt;</code></pre>
-<h3>src/templates/report.html</h3>
+<h3>src/viewmodels/report.html</h3>
 <pre><code>&lt;template&gt;
 
   &lt;article class=&quot;ui stacked segment&quot;&gt;
@@ -790,7 +779,7 @@ export class Report {
 <h2>Candidates ViewModel</h2>
 <p>We need a new viewmodel + template to enable a user to add a candidate to the election.</p>
 <p>Here is the layout:</p>
-<h3>src/layouts/candidates.html</h3>
+<h3>src/viewmodel/candidates.html</h3>
 <pre><code>&lt;template&gt;
 
   &lt;form submit.trigger=&quot;addCandidate()&quot; class=&quot;ui form stacked segment&quot;&gt;
