@@ -424,7 +424,7 @@ export class Stats {
 <p>We have been able to hook up the candidate array directly to the donation-service candidate list - and these have stayed in sync. However, the total maintained in the stats viewmodel is not performing in a similiar manner. This is because this is a separate value object (a number) and not a reference to an array.</p>
 <p>Fixing this gives us an opportunity to explore events in Aurelia, which are an elegant and simple mechanism for communicating in a clean way between components.</p>
 <p>First, in the services folder, introduce a new <code>messages</code> file:</p>
-<h2>src/services/message.js</h2>
+<h2>src/services/messages.js</h2>
 <pre><code>export class TotalUpdate {
   constructor(total) {
     this.total = total;
