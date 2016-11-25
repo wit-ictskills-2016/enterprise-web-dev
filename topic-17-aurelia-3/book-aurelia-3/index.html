@@ -970,15 +970,37 @@ export class Logout {
 <ul>
 <li><a href="https://bitbucket.org/edeleastar/donation-client/commits/tag/aurelia.3.end">https://bitbucket.org/edeleastar/donation-client/commits/tag/aurelia.3.end</a></li>
 </ul>
-<h2>Exercises 1: Stats Viewmodel</h2>
+<h2>Exercise 1: Deployment</h2>
+<p>As an experiment, create a copy of the donation-client project, call it <code>donation-client-experiment</code>.</p>
+<p>In the experiment version, delete all files <code>except</code> the following:</p>
+<ul>
+<li>index.html</li>
+<li>scripts/<em>.</em></li>
+</ul>
+<p><img src="img/02.png" alt=""></p>
+<p>Open the index.html file directly in a browser - the app should behave as previously.</p>
+<p>Create a new git repository for the experiment - and commit all sources (that remain afgter our delete step)  to <code>gh-pages</code> branch. Push the repo as a new project to your github account. If everything goes according to plan, the app should be live with the url &#39;<a href="http://youraccount.github.com/donation-client-experiment">http://youraccount.github.com/donation-client-experiment</a>&#39; url</p>
+<p>Examples:</p>
+<p>The repository here is the experiment repo - note the branch name:</p>
+<ul>
+<li><a href="https://github.com/edeleastar/donation-client-experiment">https://github.com/edeleastar/donation-client-experiment</a></li>
+</ul>
+<p>This is automatically published here:</p>
+<ul>
+<li><a href="https://edeleastar.github.io/donation-client-experiment/">https://edeleastar.github.io/donation-client-experiment/</a></li>
+</ul>
+<h2>Exercises 2: Stats Viewmodel</h2>
 <p>Run the app and look at the stats view. It seems to be perpetually set to 0. Why is this? Can you find a way of it displaying the correct view?</p>
 <p>HINT: You should look at the <code>Component Lifecycle</code> documentation:</p>
 <ul>
 <li><a href="http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/creating-components/2">http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/creating-components/2</a></li>
 </ul>
 <p>In particular, the <code>attached</code> event/method.</p>
-<h2>Exercise 2: Composite View/Viewmodel.</h2>
-<p>Build a new view/view model - to appear on the menu as &#39;dashboard&#39; - which combines all existing views/viewmodels</p>
+<h2>Exercise 3: Composite View/Viewmodel.</h2>
+<p>Build a new view/view model - to appear on the menu as &#39;dashboard&#39; - which combines all existing views/viewmodels. This view model is visible in the app here:</p>
+<ul>
+<li><a href="https://edeleastar.github.io/donation-client-experiment/">https://edeleastar.github.io/donation-client-experiment/</a></li>
+</ul>
 
       </div>
      
