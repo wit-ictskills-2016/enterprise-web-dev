@@ -624,7 +624,7 @@ export class App {
   constructor(ea, ds) {
     this.donationService = ds;
     ea.subscribe(LoginStatus, msg =&gt; {
-      this.loggedIn = msg.status;
+      this.loggedIn = msg.status.success;
     });
   }
 
@@ -772,7 +772,7 @@ export default class DonationService {
       success: false,
       message: &#39;&#39;
     };
-    this.ea.publish(new LoginStatus(new LoginStatus(status)));
+    this.ea.publish(new LoginStatus(status));
   }
 }</code></pre>
 <p>It has the following small updates:</p>
