@@ -406,7 +406,6 @@ export default class AsyncHttpClient {
 <p>An accompanying clear method:</p>
 <h2>src/services/async-http-client.js</h2>
 <pre><code>  clearAuthentication() {
-    localStorage.donation = null;
     this.http.configure(configuration =&gt; {
       configuration.withHeader(&#39;Authorization&#39;, &#39;&#39;);
     });
@@ -465,6 +464,14 @@ export default class AsyncHttpClient {
   }</code></pre>
 <p>This stores the token in the key <code>donation</code>. We can inspect this in the browser developer tools:</p>
 <p><img src="img/01.png" alt=""></p>
+<p>We should takes steps to explicitly clear the token from local storage in our <code>clearAuthentication()</code> method:</p>
+<h2>src/services/async-http-client.js</h2>
+<pre><code>  clearAuthentication() {
+    localStorage.donation = null;
+    this.http.configure(configuration =&gt; {
+      configuration.withHeader(&#39;Authorization&#39;, &#39;&#39;);
+    });
+  }</code></pre>
 <p>Try the following experiment. Log in to the service - and then exit the browser (without logging out). Open the browser again - and see if the token is still in local storage.</p>
 <p><img src="img/01.png" alt=""></p>
 <p>Because it should be - we can adapt the app to bypass the login screen in this situation (next step).</p>
