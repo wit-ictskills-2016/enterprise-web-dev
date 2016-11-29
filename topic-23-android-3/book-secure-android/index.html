@@ -118,8 +118,12 @@ h3
       06
     </a>
     
-    <a class="item" data-tab="07.Exercises">
-      07.Exercises
+    <a class="item" data-tab="07">
+      07
+    </a>
+    
+    <a class="item" data-tab="08.Exercises">
+      08.Exercises
     </a>
     
     <a class="item" href="../../index.html">
@@ -306,11 +310,17 @@ h3
       
       <div  class="ui tab segment lab" data-tab="Lab-Android 3">
         <h1>Objectives</h1>
+<p>Refactor the donation-android client to use the JWT secured routes.</p>
 
       </div>
      
       <div  class="ui tab segment lab" data-tab="Solutions">
-        <h1>Report</h1>
+        <h1>Exercises</h1>
+<p>This is the completed project from the last android app:</p>
+<ul>
+<li><a href="https://bitbucket.org/edeleastar/donation-android-2016/commits/tag/lab.14.end">https://bitbucket.org/edeleastar/donation-android-2016/commits/tag/lab.14.end</a></li>
+</ul>
+<h1>Report</h1>
 <p>Try the report now before making any changes.</p>
 <p>You will notice that it seems to list the donations. Where are these coming from? We havent made any changes to the Report activity yet...</p>
 <p>We can now adjust this - and have the report display ALL donations (not just the donations made on this device).</p>
@@ -468,7 +478,9 @@ class DonationAdapter extends ArrayAdapter&lt;Donation&gt;
       </div>
      
       <div  class="ui tab segment lab" data-tab="02">
-        <p>#</p>
+        <h1>Token Model + Authenticate Method</h1>
+<p>To support Tokens, we need a new model class which will hold the Json Web Tokens in our app:</p>
+<h1>app.donation.model</h1>
 <pre><code>package app.donation.model;
 
 public class Token
@@ -483,31 +495,476 @@ public class Token
     this.token = token;
   }
 }</code></pre>
+<h2>donation-web</h2>
+<p>Back on the server side we need to make some adjustments in our auth implementation:</p>
+<h2>app/api/candidatesapi.js</h2>
+<p>The get all candidates route should be made open:</p>
+<pre><code>exports.find = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    Candidate.find({}).exec().then(candidates =&gt; {
+      reply(candidates);
+    }).catch(err =&gt; {
+      reply(Boom.badImplementation(&#39;error accessing db&#39;));
+    });
+  },
+
+};</code></pre>
+<p>This will allow an unauthenticated client to retrieve the candidates</p>
+<p>We need to augment the <code>authenticate</code> method to pass user details back on a successful authentication:</p>
+<h3>app/api/usersapi.js</h3>
+<pre><code>exports.authenticate = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    const user = request.payload;
+    User.findOne({ email: user.email }).then(foundUser =&gt; {
+      if (foundUser &amp;&amp; foundUser.password === user.password) {
+        const token = utils.createToken(foundUser);
+        reply({ success: true, token: token, user: foundUser }).code(201);
+      } else {
+        reply({ success: false, message: &#39;Authentication failed. User not found.&#39; }).code(201);
+      }
+    }).catch(err =&gt; {
+      reply(Boom.notFound(&#39;internal db failure&#39;));
+    });
+  },
+
+};</code></pre>
+<p>Also, the create user should be open to unauthenticated users:</p>
+<pre><code>exports.create = {
+
+  auth: false,
+
+  ...
+};</code></pre>
+<h1>Record Donor when donation is made</h1>
+<p>This was an exercise in the last lab. </p>
+<p>First, bring in a new utility method. which will make decoding tokens a little more convenient:</p>
+<h2>app/api/utils.js</h2>
+<pre><code>exports.getUserIdFromRequest = function (request) {
+  var userId = null;
+  try {
+    const authorization = request.headers.authorization;
+    var token = authorization.split(&#39; &#39;)[1];
+    var decodedToken = jwt.verify(token, &#39;secretpasswordnotrevealedtoanyone&#39;);
+    userId = decodedToken.id;
+  } catch (e) {
+    userId = null;
+  }
+
+  return userId;
+};</code></pre>
+<h2>app/api/donationsapi.js</h2>
+<p>Use this function to initialise the donor field in a new donation. Also , make sure, when we are creating a donation, re return the new donation including populated donor and candidate fields:</p>
+<pre><code>const utils = require(&#39;./utils.js&#39;);
+
+...
+
+exports.makeDonation = {
+
+  auth: {
+    strategy: &#39;jwt&#39;,
+  },
+
+  handler: function (request, reply) {
+    const donation = new Donation(request.payload);
+    donation.candidate = request.params.id;
+    donation.donor = utils.getUserIdFromRequest(request);
+    donation.save().then(newDonation =&gt; {
+      return Donation.findOne(newDonation).populate(&#39;candidate&#39;).populate(&#39;donor&#39;);
+    }).then(newDonation =&gt; {
+      reply(newDonation).code(201);
+    }).catch(err =&gt; {
+      reply(Boom.badImplementation(&#39;error making donation&#39;));
+    });
+  },
+
+};</code></pre>
 
       </div>
      
       <div  class="ui tab segment lab" data-tab="03">
-        <p>#</p>
+        <h2>RetrofitServiceFctory</h2>
+<p>Back in the donation-android app, We need to change how we are creating the proxies to the service. Specifically we will need 2 <code>createService</code> methods:</p>
+<ul>
+<li>without jwt support for &#39;open&#39; apis</li>
+<li>with jwt support for &#39;closed&#39; apis</li>
+</ul>
+<p>The open version is more or less what we have working already. The closed one will need a valid token, and will include this token with api calls make through one of the objects it manufactures.</p>
+<h2>app.donation.main</h2>
+<pre><code>package app.donation.main;
+
+import java.io.IOException;
+
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.Retrofit.Builder;
+
+public class RetrofitServiceFactory
+{
+  public static final String API_BASE_URL = &quot;http://10.0.2.2:4000&quot;;
+
+  private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+
+  private static Builder builder = new Builder()
+                                        .baseUrl(API_BASE_URL)
+                                        .addConverterFactory(GsonConverterFactory.create());
+
+  public static &lt;S&gt; S createService(Class&lt;S&gt; serviceClass)
+  {
+    Retrofit retrofit = builder.client(httpClient.build()).build();
+    return retrofit.create(serviceClass);
+  }
+
+  public static &lt;S&gt; S createService(Class&lt;S&gt; serviceClass, final String authToken)
+  {
+    if (authToken != null)
+    {
+      httpClient.addInterceptor(new Interceptor()
+      {
+        @Override
+        public Response intercept(Interceptor.Chain chain) throws IOException
+        {
+          Request original = chain.request();
+          Request.Builder requestBuilder = original.newBuilder()
+              .header(&quot;Authorization&quot;, &quot;bearer &quot; + authToken)
+              .method(original.method(), original.body());
+
+          Request request = requestBuilder.build();
+          return chain.proceed(request);
+        }
+      });
+    }
+
+    OkHttpClient client = httpClient.build();
+    Retrofit retrofit = builder.client(client).build();
+    return retrofit.create(serviceClass);
+  }
+}</code></pre>
 
       </div>
      
       <div  class="ui tab segment lab" data-tab="04">
-        <p>#</p>
+        <h1>Donation Service Interfaces</h1>
+<p>We propose 2 interfaces, one we regard as open (without an auth requirement):</p>
+<h2>app.donation.main.DonationServiceOpen</h2>
+<pre><code>package app.donation.main;
+
+import java.util.List;
+
+import app.donation.model.Token;
+import app.donation.model.Candidate;
+import app.donation.model.User;
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
+
+public interface DonationServiceOpen
+{
+  @GET(&quot;/api/candidates&quot;)
+  Call&lt;List&lt;Candidate&gt;&gt; getAllCandidates();
+
+  @POST(&quot;/api/users&quot;)
+  Call&lt;User&gt; createUser(@Body User User);
+
+  @POST(&quot;/api/users/authenticate&quot;)
+  Call&lt;Token&gt; authenticate(@Body User user);
+}</code></pre>
+<p>.. and one we consider to be closed:</p>
+<h2>app.donation.main.DonationService</h2>
+<pre><code>package app.donation.main;
+
+import java.util.List;
+
+import app.donation.model.Donation;
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Path;
+
+public interface DonationService
+{
+  @GET(&quot;/api/donations&quot;)
+  Call&lt;List&lt;Donation&gt;&gt; getAllDonations();
+
+  @POST(&quot;/api/candidates/{id}/donations&quot;)
+  Call&lt;Donation&gt; createDonation(@Path(&quot;id&quot;) String id, @Body Donation donation);
+}</code></pre>
+<p>There is no real difference in how we declare these interfaces - but separating them out means we can use a different service creation mechanism for each (with or without jwt token), as presented in the last step.</p>
 
       </div>
      
       <div  class="ui tab segment lab" data-tab="05">
-        <p>#</p>
+        <h1>Authenticate</h1>
+<h2>app.main.DonationApp</h2>
+<p>The DonationApp class in restructured now to use the new authenticate route - encapsulated in the <code>validUser</code> and <code>onResponse</code> methods below:</p>
+<pre><code>package app.donation.main;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Application;
+import android.util.Log;
+import android.widget.Toast;
+
+import app.donation.model.Token;
+import app.donation.model.Candidate;
+import app.donation.model.User;
+import app.donation.model.Donation;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class DonationApp extends Application implements Callback&lt;Token&gt;
+{
+  public DonationServiceOpen donationServiceOpen;
+  public DonationService     donationService;
+
+  public boolean         donationServiceAvailable = false;
+  public String          service_url  = &quot;http://10.0.2.2:4000&quot;;   // Standard Emulator IP Address
+
+  public final int       target       = 10000;
+  public int             totalDonated = 0;
+
+  public User             currentUser;
+  public List &lt;Donation&gt;  donations    = new ArrayList&lt;Donation&gt;();
+  public List &lt;Candidate&gt; candidates   = new ArrayList&lt;Candidate&gt;();
+
+  public boolean newDonation(Donation donation)
+  {
+    boolean targetAchieved = totalDonated &gt; target;
+    if (!targetAchieved)
+    {
+      donations.add(donation);
+      totalDonated += donation.amount;
+    }
+    else
+    {
+      Toast toast = Toast.makeText(this, &quot;Target Exceeded!&quot;, Toast.LENGTH_SHORT);
+      toast.show();
+    }
+    return targetAchieved;
+  }
+
+  @Override
+  public void onCreate()
+  {
+    super.onCreate();
+    donationServiceOpen = RetrofitServiceFactory.createService(DonationServiceOpen.class);
+    Log.v(&quot;Donation&quot;, &quot;Donation App Started&quot;);
+  }
+
+  public boolean validUser (String email, String password)
+  {
+    User user = new User (&quot;&quot;, &quot;&quot;, email, password);
+    donationServiceOpen.authenticate(user);
+    Call&lt;Token&gt; call = (Call&lt;Token&gt;) donationServiceOpen.authenticate (user);
+    call.enqueue(this);
+    return true;
+  }
+
+  @Override
+  public void onResponse(Call&lt;Token&gt; call, Response&lt;Token&gt; response) {
+    Token auth = response.body();
+    currentUser = auth.user;
+    donationService =  RetrofitServiceFactory.createService(DonationService.class, auth.token);
+    Log.v(&quot;Donation&quot;, &quot;Authenticated &quot; + currentUser.firstName + &#39; &#39; + currentUser.lastName);
+  }
+
+  @Override
+  public void onFailure(Call&lt;Token&gt; call, Throwable t) {
+    Toast toast = Toast.makeText(this, &quot;Unable to authenticate with Donation Service&quot;, Toast.LENGTH_SHORT);
+    toast.show();
+    Log.v(&quot;Donation&quot;, &quot;Failed to Authenticated!&quot;);
+  }
+}</code></pre>
+<p>In <code>onResponse</code> above, we are creating the closed route proxy using the token we have just received (if we had the correct credentials).</p>
 
       </div>
      
       <div  class="ui tab segment lab" data-tab="06">
-        <p>#</p>
+        <h1>Welcome</h1>
+<p>The welcome activity can be simplified, as we are no longer downloading a full list of users...</p>
+<h2>app.activities.Welcome</h2>
+<pre><code>package app.donation.activity;
+
+import app.donation.R;
+import app.donation.main.DonationApp;
+import app.donation.model.Candidate;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Toast;
+
+import java.util.List;
+
+public class Welcome extends AppCompatActivity
+{
+  private DonationApp app;
+
+  @Override
+  public void onCreate(Bundle savedInstanceState)
+  {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_welcome);
+
+    app = (DonationApp) getApplication();
+  }
+
+  @Override
+  public void onResume()
+  {
+    super.onResume();
+    app.currentUser = null;;
+
+    Call&lt;List&lt;Candidate&gt;&gt; call = (Call&lt;List&lt;Candidate&gt;&gt;) app.donationServiceOpen.getAllCandidates();
+    call.enqueue(new Callback&lt;List&lt;Candidate&gt;&gt;() {
+      @Override
+      public void onResponse(Call&lt;List&lt;Candidate&gt;&gt; call, Response&lt;List&lt;Candidate&gt;&gt; response) {
+        serviceAvailableMessage();
+        app.candidates = response.body();
+      }
+
+      @Override
+      public void onFailure(Call&lt;List&lt;Candidate&gt;&gt; call, Throwable t) {
+        serviceUnavailableMessage();
+      }
+    });
+  }
+
+  public void loginPressed (View view)
+  {
+    if (app.donationServiceAvailable)
+    {
+      startActivity (new Intent(this, Login.class));
+    }
+    else
+    {
+      serviceUnavailableMessage();
+    }
+  }
+
+  public void signupPressed (View view)
+  {
+    if (app.donationServiceAvailable)
+    {
+      startActivity (new Intent(this, Signup.class));
+    }
+    else
+    {
+      serviceUnavailableMessage();
+    }
+  }
+
+  void serviceUnavailableMessage()
+  {
+    app.donationServiceAvailable = false;
+    Toast toast = Toast.makeText(this, &quot;Donation Service Unavailable. Try again later&quot;, Toast.LENGTH_LONG);
+    toast.show();
+  }
+
+  void serviceAvailableMessage()
+  {
+    app.donationServiceAvailable = true;
+    Toast toast = Toast.makeText(this, &quot;Donation Contacted Successfully&quot;, Toast.LENGTH_LONG);
+    toast.show();
+  }
+}</code></pre>
 
       </div>
      
-      <div  class="ui tab segment lab" data-tab="07.Exercises">
+      <div  class="ui tab segment lab" data-tab="07">
+        <h1>Signup</h1>
+<p>Signup has minor changes to use the open api proxy:</p>
+<h2>app.activities.Signup</h2>
+<pre><code>package app.donation.activity;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import app.donation.R;
+import app.donation.main.DonationApp;
+import app.donation.model.User;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class Signup extends AppCompatActivity implements Callback&lt;User&gt;
+{
+  private DonationApp app;
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState)
+  {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_signup);
+    app = (DonationApp) getApplication();
+  }
+
+  public void signupPressed (View view)
+  {
+    TextView firstName = (TextView)  findViewById(R.id.firstName);
+    TextView lastName  = (TextView)  findViewById(R.id.lastName);
+    TextView email     = (TextView)  findViewById(R.id.Email);
+    TextView password  = (TextView)  findViewById(R.id.Password);
+
+    User user = new User(firstName.getText().toString(), lastName.getText().toString(), email.getText().toString(), password.getText().toString());
+
+    DonationApp app = (DonationApp) getApplication();
+    Call&lt;User&gt; call = (Call&lt;User&gt;) app.donationServiceOpen.createUser(user);
+    call.enqueue(this);
+  }
+
+  @Override
+  public void onResponse(Call&lt;User&gt; call, Response&lt;User&gt; response)
+  {
+    Toast toast = Toast.makeText(this, &quot;Signup Successful&quot;, Toast.LENGTH_LONG);
+    toast.show();
+    startActivity(new Intent(this, Welcome.class));
+  }
+
+  @Override
+  public void onFailure(Call&lt;User&gt; call, Throwable t)
+  {
+    app.donationServiceAvailable = false;
+    Toast toast = Toast.makeText(this, &quot;Donation Service Unavailable. Try again later&quot;, Toast.LENGTH_LONG);
+    toast.show();
+    startActivity (new Intent(this, Welcome.class));
+  }
+}</code></pre>
+
+      </div>
+     
+      <div  class="ui tab segment lab" data-tab="08.Exercises">
         <h1>Solution</h1>
+<p>Complete projects:</p>
+<h2>android</h2>
+<ul>
+<li><a href="https://bitbucket.org/edeleastar/donation-android-2016">https://bitbucket.org/edeleastar/donation-android-2016</a></li>
+</ul>
+<h2>hapi</h2>
+<ul>
+<li><a href="https://bitbucket.org/edeleastar/donation-web-final">https://bitbucket.org/edeleastar/donation-web-final</a></li>
+</ul>
 
       </div>
      
