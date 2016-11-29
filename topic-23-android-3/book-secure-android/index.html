@@ -503,13 +503,7 @@ public class Token
 
   auth: false,
 
-  handler: function (request, reply) {
-    Candidate.find({}).exec().then(candidates =&gt; {
-      reply(candidates);
-    }).catch(err =&gt; {
-      reply(Boom.badImplementation(&#39;error accessing db&#39;));
-    });
-  },
+  ...
 
 };</code></pre>
 <p>This will allow an unauthenticated client to retrieve the candidates</p>
@@ -559,7 +553,7 @@ public class Token
   return userId;
 };</code></pre>
 <h2>app/api/donationsapi.js</h2>
-<p>Use this function to initialise the donor field in a new donation. Also , make sure, when we are creating a donation, re return the new donation including populated donor and candidate fields:</p>
+<p>Use this function to initialise the donor field in a new donation. Also , make sure, when we are creating a donation, we return the new donation including populated donor and candidate fields:</p>
 <pre><code>const utils = require(&#39;./utils.js&#39;);
 
 ...
@@ -589,12 +583,12 @@ exports.makeDonation = {
      
       <div  class="ui tab segment lab" data-tab="03">
         <h2>RetrofitServiceFctory</h2>
-<p>Back in the donation-android app, We need to change how we are creating the proxies to the service. Specifically we will need 2 <code>createService</code> methods:</p>
+<p>Back in the donation-android app, We need to change how we are creating the proxies to the service. Specifically we need to compose a factory class which will create 2 separate donation-web api proxies:</p>
 <ul>
 <li>without jwt support for &#39;open&#39; apis</li>
 <li>with jwt support for &#39;closed&#39; apis</li>
 </ul>
-<p>The open version is more or less what we have working already. The closed one will need a valid token, and will include this token with api calls make through one of the objects it manufactures.</p>
+<p>The open version is created more or less the same way as before. The closed one will need a valid token, and will include this token with api calls makes.</p>
 <h2>app.donation.main</h2>
 <pre><code>package app.donation.main;
 
