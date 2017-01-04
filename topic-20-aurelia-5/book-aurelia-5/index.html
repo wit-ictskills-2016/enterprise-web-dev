@@ -495,7 +495,7 @@ export default class AsyncHttpClient {
   }</code></pre>
 <p>This also returns true if it found a token. </p>
 <p>We introduce an accessor for this method in DonationService`:</p>
-<h2>src/services/donation-service.js</h2>
+<h2>src/services/async-http-client.js</h2>
 <pre><code>  isAuthenticated() {
     return this.ac.isAuthenticated();
   }</code></pre>
@@ -586,7 +586,7 @@ export class App {
 <li>Deploy donation-web to heroku, and donation-client to github - gh-pages - as outlined in an earlier lab</li>
 <li>Deploy both apps to heroku, coping <code>index.html</code> + <code>scripts</code> to the public folder of the donation-web app</li>
 </ul>
-<p>Make sure that <code>src/services/fixtures.js</code> contains the correct url in each instance.</p>
+<p>Make sure that <code>src/sercices/fixtures.js</code> contains the correct url in each instance.</p>
 <h2>Learning Resources</h2>
 <p>If you are continuing your journey with Aurelia, these resources may be useful:</p>
 <p>The starting point for all things Aurelia:</p>
@@ -630,24 +630,20 @@ export class App {
 
     </footer>
     <script>
-      
-$(document).ready(function()
-{
-  $("img").addClass ("ui image");
+      $(document).ready(function () {
+  $('img').addClass('ui image');
   $('.ui.embed').embed();
 
-  var images = $(".lab img");
-  jQuery.each(images, function(i)  {
-    if((images[i].alt).length > 0)
-    {
-      var div_img = $(document.createElement("div")).addClass("ui segment");
-      $(images[i]).wrap(div_img);
-      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
-      div_label.append(images[i].alt);
-      $(div_label).insertBefore(images[i]);
+  const $images = $('.lab img');
+  jQuery.each($images, function (i) {
+    if (($images[i].alt).length > 0) {
+      const divImg = $(document.createElement('div')).addClass('ui basic segment');
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass('ui blue ribbon label');
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
     }
   });
-
 
   $('.ui.menu .item')
       .tab({

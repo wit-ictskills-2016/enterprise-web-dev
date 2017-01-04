@@ -66,8 +66,8 @@ figcaption
 
     
 <div class="two wide column sitemap">
-  <div class="popup" data-content="Top Level Topic View">
-    <a href="../index.html"> <i class="huge home icon"></i> Topics </a>
+  <div class="popup" data-content="To the top level Topics for this Module...">
+    <a href="../index.html"> <i class="huge home icon"></i> Module </a>
   </div>
 </div>
 
@@ -127,11 +127,15 @@ figcaption
         </a>
       
         <a class="item" href="talk-2b-schedule/schedule-assign-2.pdf">
-           Presentation Schedule
+          schedule-assign-2
         </a>
       
         <a class="item" href="talk-3-assessment-3/assignment-3.pdf">
            Assignment 3
+        </a>
+      
+        <a class="item" href="talk-3b-schedule/schedule-assign-3.pdf">
+          schedule-assign-3
         </a>
       
     </div>
@@ -221,15 +225,14 @@ figcaption
   <a class="ui raised link card" href="talk-2b-schedule/schedule-assign-2.pdf">
     <div class="content">
         <div class="right floated meta"> <i class="film large icon"></i></div>
-        <div class="header">  Presentation Schedule </div>
+        <div class="header"> schedule-assign-2 </div>
     </div>
     <div class="image">
       <img class="ui bordered rounded image" src="talk-2b-schedule/schedule-assign-2.png">
     </div>
     <div class="content">
       <div class="description">
-         <p>For assignment 1</p>
-
+         
       </div>
     </div>
     
@@ -255,6 +258,24 @@ figcaption
   </a>
 
         
+        
+  <a class="ui raised link card" href="talk-3b-schedule/schedule-assign-3.pdf">
+    <div class="content">
+        <div class="right floated meta"> <i class="film large icon"></i></div>
+        <div class="header"> schedule-assign-3 </div>
+    </div>
+    <div class="image">
+      <img class="ui bordered rounded image" src="talk-3b-schedule/schedule-assign-3.png">
+    </div>
+    <div class="content">
+      <div class="description">
+         
+      </div>
+    </div>
+    
+  </a>
+
+        
 
       </div>
     </div>
@@ -266,24 +287,20 @@ figcaption
 
     </footer>
     <script>
-      
-$(document).ready(function()
-{
-  $("img").addClass ("ui image");
+      $(document).ready(function () {
+  $('img').addClass('ui image');
   $('.ui.embed').embed();
 
-  var images = $(".lab img");
-  jQuery.each(images, function(i)  {
-    if((images[i].alt).length > 0)
-    {
-      var div_img = $(document.createElement("div")).addClass("ui segment");
-      $(images[i]).wrap(div_img);
-      var div_label = $(document.createElement("div")).addClass("ui ribbon teal top attached label");
-      div_label.append(images[i].alt);
-      $(div_label).insertBefore(images[i]);
+  const $images = $('.lab img');
+  jQuery.each($images, function (i) {
+    if (($images[i].alt).length > 0) {
+      const divImg = $(document.createElement('div')).addClass('ui basic segment');
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass('ui blue ribbon label');
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
     }
   });
-
 
   $('.ui.menu .item')
       .tab({
